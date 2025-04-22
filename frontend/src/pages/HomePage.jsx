@@ -97,36 +97,6 @@ const HomePage = () => {
                 <a href="tel:+905326109511" className="btn btn-primary">Hemen Ara: 0532 610 95 11</a>
                 <a href="https://api.whatsapp.com/send?phone=905326109511" className="btn btn-outline">WhatsApp İletişim</a>
               </div>
-              <div className="hero-features">
-                <div className="hero-feature">
-                  <FaCheck className="feature-icon" />
-                  <span>Ücretsiz Arıza Tespiti</span>
-                </div>
-                <div className="hero-feature">
-                  <FaCheck className="feature-icon" />
-                  <span>Yerinde Hızlı Servis</span>
-                </div>
-                <div className="hero-feature">
-                  <FaCheck className="feature-icon" />
-                  <span>3 Ay Garanti</span>
-                </div>
-              </div>
-            </div>
-            <div className="hero-banner">
-              <div className="hero-stats">
-                <div className="stat-item">
-                  <span className="stat-number">10+</span>
-                  <span className="stat-text">Yıllık Deneyim</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">5000+</span>
-                  <span className="stat-text">Tamamlanan Onarım</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">%99</span>
-                  <span className="stat-text">Müşteri Memnuniyeti</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

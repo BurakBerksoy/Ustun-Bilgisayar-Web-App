@@ -24,7 +24,7 @@ const Footer = () => {
             <div className="footer-contact">
               <div className="contact-item">
                 <FaMapMarkerAlt />
-                <span>Taksim Meydanı, Kocatepe, 34435 Beyoğlu/İstanbul</span>
+                <span>ALEMDAĞ CADDESİ, Rüzgarlı Sk. NO:3/A, 34460 Ümraniye/İstanbul</span>
               </div>
               <div className="contact-item">
                 <FaPhone />
@@ -32,7 +32,7 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <FaEnvelope />
-                <a href="mailto:info@bilgisayartamiri.com">info@bilgisayartamiri.com</a>
+                <a href="mailto:üstünbilgisayar@bilgisayartamiri.com">üstünbilgisayar@bilgisayartamiri.com</a>
               </div>
             </div>
           </div>
