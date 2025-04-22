@@ -1,0 +1,491 @@
+/* 
+  ProductModal.css - Ürün Ekleme/Düzenleme Modal Stilleri
+  Versiyon: 4.0 - Modern UI Güncellemesi
+*/
+
+/* Modal Backdrop */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 15, 30, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Ürün Modalı */
+.product-modal {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  width: 95%;
+  max-width: 680px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1),
+              0 0 0 1px rgba(255, 255, 255, 0.1);
+  animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow-y: auto;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Modal Başlık */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid rgba(241, 245, 249, 0.8);
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #0f172a;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(90deg, #0f172a, #334155);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.modal-header .close-button {
+  background: none;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 1.25rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-header .close-button:hover {
+  background-color: #f1f5f9;
+  color: #e11d48;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* Form Grup */
+.form-group {
+  margin-bottom: 2rem;
+  animation: fadeUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.15s; }
+.form-group:nth-child(3) { animation-delay: 0.2s; }
+.form-group:nth-child(4) { animation-delay: 0.25s; }
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background-color: #f8fafc;
+  font-size: 1rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03) inset;
+  color: #0f172a;
+}
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+  border-color: #94a3b8;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05) inset;
+  background-color: #fff;
+}
+
+.form-group input.error,
+.form-group textarea.error,
+.form-group select.error {
+  border-color: #e11d48;
+  background-color: #fff1f2;
+  box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.1);
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23475569' viewBox='0 0 16 16'%3E%3Cpath d='M8 10.5a.5.5 0 0 1-.354-.146l-4-4a.5.5 0 1 1 .708-.708L8 9.293l3.646-3.647a.5.5 0 0 1 .708.708l-4 4A.5.5 0 0 1 8 10.5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Hata Mesajı */
+.error-message {
+  color: #e11d48;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  animation: fadeIn 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  background-color: rgba(254, 226, 226, 0.5);
+  border-radius: 6px;
+  border-left: 3px solid #e11d48;
+}
+
+/* Dosya Yükleme Alanı */
+.file-upload-area {
+  border: 2.5px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #f8fafc;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.file-upload-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.5), rgba(186, 230, 253, 0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.file-upload-area:hover {
+  border-color: #94a3b8;
+  background-color: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+.file-upload-area:hover::before {
+  opacity: 1;
+}
+
+.file-upload-area.dragging {
+  border-color: #0284c7;
+  background-color: rgba(186, 230, 253, 0.3);
+  transform: scale(1.01);
+}
+
+.file-upload-area.error {
+  border-color: #e11d48;
+  background-color: rgba(254, 226, 226, 0.2);
+}
+
+.file-upload-area .upload-icon {
+  font-size: 2.5rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.file-upload-area:hover .upload-icon {
+  transform: translateY(-5px);
+  color: #0284c7;
+}
+
+.file-upload-area p {
+  margin: 0.5rem 0;
+  color: #475569;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.file-upload-area span {
+  display: block;
+  margin-top: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+/* Çoklu Resim Önizleme Alanı */
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.image-preview-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1/1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.image-preview-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-preview-item:hover img {
+  transform: scale(1.08);
+}
+
+.image-preview-item .remove-image {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #e11d48;
+  font-size: 1rem;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(-10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.image-preview-item:hover .remove-image {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-preview-item .remove-image:hover {
+  background: #fff;
+  color: #be123c;
+  transform: scale(1.15);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.images-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 10px;
+}
+
+.images-counter {
+  font-size: 0.9rem;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.clear-all-images {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clear-all-images:hover {
+  background-color: #fef2f2;
+  color: #ef4444;
+  border-color: #fee2e2;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
+}
+
+/* Form Butonları */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1.75rem 2rem;
+  background: linear-gradient(to top, #f1f5f9, #f8fafc);
+  border-top: 1px solid #f1f5f9;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.cancel-button, .submit-button {
+  padding: 0.9rem 1.75rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cancel-button {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: none;
+}
+
+.cancel-button:hover {
+  background-color: #e2e8f0;
+  color: #334155;
+  transform: translateY(-2px);
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(2, 132, 199, 0.4);
+}
+
+.submit-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Animasyonlar */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Mobil Responsive */
+@media (max-width: 640px) {
+  .modal-header {
+    padding: 1.25rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .form-buttons {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+    padding: 1.25rem;
+  }
+  
+  .cancel-button, .submit-button {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* Orta boyutlu ekranlarda 2 sütun */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* Mobil ekranlarda 1 sütun */
+  }
+} 

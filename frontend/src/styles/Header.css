@@ -1,0 +1,358 @@
+.header {
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.header.scrolled {
+  padding: 0.7rem 0;
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  z-index: 101;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-left: 0.5rem;
+  background: linear-gradient(to right, #1a5cbe, #00b2ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  object-fit: contain;
+  max-width: 100%;
+}
+
+.logo-icon {
+  font-size: 2.5rem;
+  color: #1a5cbe;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo a:hover {
+  transform: translateY(-2px);
+}
+
+.logo a:hover img,
+.logo a:hover .logo-icon {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  margin-left: 2.5rem;
+  position: relative;
+}
+
+.nav-link {
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 0.7rem 0;
+  position: relative;
+  letter-spacing: 0.3px;
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1a5cbe, #00b2ff);
+  transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+  border-radius: 3px;
+}
+
+.nav-link:hover .nav-indicator,
+.nav-link.active .nav-indicator,
+.nav-indicator.active {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #1a5cbe;
+}
+
+.mobile-menu-button {
+  display: none;
+  font-size: 1.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1e293b;
+  z-index: 101;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.mobile-menu-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-menu-button.active {
+  color: #1a5cbe;
+  transform: rotate(90deg);
+}
+
+/* Contact button styling */
+.nav-controls {
+  display: flex;
+  align-items: center;
+}
+
+.contact-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.5s;
+}
+
+.contact-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+.contact-button:hover::before {
+  left: 100%;
+}
+
+.contact-button:active {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+}
+
+.phone-icon {
+  margin-right: 0.5rem;
+  font-size: 1.15rem;
+  animation: pulse 2s infinite;
+}
+
+.contact-button span {
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-controls {
+    margin-left: 0.8rem;
+  }
+  
+  .contact-button {
+    padding: 0.6rem 1rem;
+  }
+  
+  .navigation li {
+    margin-left: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: flex;
+  }
+  
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+  }
+  
+  .navigation.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .navigation ul {
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .navigation.active ul {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .navigation li {
+    margin: 1rem 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition-delay: 0.1s;
+  }
+  
+  .navigation.active li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .navigation.active li:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  
+  .navigation.active li:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  
+  .navigation.active li:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  
+  .navigation.active li:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+  
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    display: inline-block;
+  }
+  
+  .nav-indicator {
+    height: 2px;
+  }
+  
+  .nav-controls {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 101;
+  }
+  
+  .navigation.active ~ .nav-controls {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+  }
+  
+  .contact-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 40px;
+  }
+  
+  .logo-icon {
+    font-size: 2rem;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+  }
+  
+  .header .container {
+    padding: 0 15px;
+  }
+  
+  .contact-button {
+    padding: 0.7rem 1.5rem;
+  }
+  
+  .phone-icon {
+    font-size: 1.1rem;
+  }
+} 

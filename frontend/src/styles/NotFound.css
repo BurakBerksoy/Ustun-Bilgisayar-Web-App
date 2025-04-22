@@ -1,0 +1,107 @@
+/* 
+  NotFound.css - 404 Sayfası Stilleri
+  Versiyon: 1.0
+*/
+
+.not-found-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.not-found-content {
+  max-width: 600px;
+  text-align: center;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.not-found-content h1 {
+  font-size: 8rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+  background: linear-gradient(135deg, #2a6db3 0%, #0c3b6e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.not-found-content h2 {
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  color: #343a40;
+}
+
+.not-found-content p {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.not-found-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.not-found-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.not-found-button:not(.secondary) {
+  background-color: #2a6db3;
+  color: white;
+  border: none;
+}
+
+.not-found-button:not(.secondary):hover {
+  background-color: #1e5b99;
+}
+
+.not-found-button.secondary {
+  background-color: #e9ecef;
+  color: #495057;
+  border: none;
+}
+
+.not-found-button.secondary:hover {
+  background-color: #dee2e6;
+}
+
+@media (max-width: 576px) {
+  .not-found-content {
+    padding: 2rem;
+  }
+  
+  .not-found-content h1 {
+    font-size: 6rem;
+  }
+  
+  .not-found-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .not-found-buttons {
+    flex-direction: column;
+  }
+  
+  .not-found-button {
+    width: 100%;
+  }
+} 

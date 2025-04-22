@@ -1,0 +1,364 @@
+/* ServicesPage.css - Hizmetlerimiz Sayfası Stilleri v1.0 */
+
+/* Ana container */
+.services-page {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+/* Başlık bölümü */
+.services-header {
+  background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.services-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTI4MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTEyODAgMEw2NDAgNzAgMCAwdjE0MGgxMjgweiIgZmlsbC1vcGFjaXR5PSIuMSIvPjwvZz48L3N2Zz4=');
+  background-size: 100% 100%;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.services-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.services-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeInDown 0.8s ease;
+}
+
+.services-header p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Container */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* İçerik bölümü */
+.services-content {
+  padding: 4rem 0;
+}
+
+/* Hizmet Intro */
+.services-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  animation: fadeIn 1s ease;
+}
+
+.services-intro h2 {
+  font-size: 2.2rem;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.services-intro h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+.services-intro p {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* Hizmet Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+/* Hizmet Kartları */
+.service-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-top: 5px solid #0284c7;
+  animation: fadeInUp 0.6s ease both;
+}
+
+.service-card:nth-child(2) {
+  animation-delay: 0.1s;
+  border-top-color: #2563eb;
+}
+
+.service-card:nth-child(3) {
+  animation-delay: 0.2s;
+  border-top-color: #0097a7;
+}
+
+.service-card:nth-child(4) {
+  animation-delay: 0.3s;
+  border-top-color: #3949ab;
+}
+
+.service-card:nth-child(5) {
+  animation-delay: 0.4s;
+  border-top-color: #0d9488;
+}
+
+.service-card:nth-child(6) {
+  animation-delay: 0.5s;
+  border-top-color: #10b981;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #0284c7;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 5px 15px rgba(2, 132, 199, 0.2);
+}
+
+.service-card:nth-child(2) .service-icon {
+  background: linear-gradient(135deg, #e0effe 0%, #bae0fd 100%);
+  color: #2563eb;
+}
+
+.service-card:nth-child(3) .service-icon {
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+  color: #0097a7;
+}
+
+.service-card:nth-child(4) .service-icon {
+  background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+  color: #3949ab;
+}
+
+.service-card:nth-child(5) .service-icon {
+  background: linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%);
+  color: #0d9488;
+}
+
+.service-card:nth-child(6) .service-icon {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #10b981;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: auto;
+}
+
+.service-features li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.7rem;
+  color: #475569;
+}
+
+.service-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #0284c7;
+  font-weight: bold;
+}
+
+.service-card:nth-child(2) .service-features li::before {
+  color: #2563eb;
+}
+
+.service-card:nth-child(3) .service-features li::before {
+  color: #0097a7;
+}
+
+.service-card:nth-child(4) .service-features li::before {
+  color: #3949ab;
+}
+
+.service-card:nth-child(5) .service-features li::before {
+  color: #0d9488;
+}
+
+.service-card:nth-child(6) .service-features li::before {
+  color: #10b981;
+}
+
+/* CTA Bölümü */
+.services-cta {
+  background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+  padding: 3rem;
+  border-radius: 16px;
+  text-align: center;
+  margin-top: 3rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 1s ease;
+}
+
+.services-cta h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 1.2rem;
+}
+
+.services-cta p {
+  font-size: 1.1rem;
+  color: #475569;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.4);
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from { 
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsif Düzenlemeler */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .services-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .services-intro h2,
+  .services-cta h2 {
+    font-size: 1.8rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .services-cta {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .services-header p,
+  .services-intro p,
+  .services-cta p {
+    font-size: 1rem;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
+  }
+} 

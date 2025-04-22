@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#f9fafb"/>
+  
+  <!-- Office Background -->
+  <rect x="50" y="50" width="700" height="300" rx="10" fill="#fff"/>
+  <line x1="50" y1="100" x2="750" y2="100" stroke="#eee" stroke-width="1"/>
+  
+  <!-- Desktop Computers -->
+  <rect x="100" y="150" width="120" height="80" rx="5" fill="#333"/>
+  <rect x="110" y="160" width="100" height="60" fill="#0077cc"/>
+  <rect x="140" y="230" width="40" height="10" fill="#333"/>
+  
+  <rect x="300" y="150" width="120" height="80" rx="5" fill="#333"/>
+  <rect x="310" y="160" width="100" height="60" fill="#0077cc"/>
+  <rect x="340" y="230" width="40" height="10" fill="#333"/>
+  
+  <rect x="500" y="150" width="120" height="80" rx="5" fill="#333"/>
+  <rect x="510" y="160" width="100" height="60" fill="#0077cc"/>
+  <rect x="540" y="230" width="40" height="10" fill="#333"/>
+  
+  <!-- Desk -->
+  <rect x="80" y="240" width="600" height="10" fill="#996633"/>
+  <rect x="80" y="250" width="10" height="80" fill="#996633"/>
+  <rect x="670" y="250" width="10" height="80" fill="#996633"/>
+  
+  <!-- People Silhouettes -->
+  <circle cx="160" cy="280" r="15" fill="#555"/>
+  <rect x="150" y="295" width="20" height="35" rx="5" fill="#555"/>
+  
+  <circle cx="360" cy="280" r="15" fill="#555"/>
+  <rect x="350" y="295" width="20" height="35" rx="5" fill="#555"/>
+  
+  <circle cx="560" cy="280" r="15" fill="#555"/>
+  <rect x="550" y="295" width="20" height="35" rx="5" fill="#555"/>
+  
+  <!-- Logo on Wall -->
+  <rect x="375" y="70" width="50" height="20" rx="5" fill="#0077cc"/>
+  <text x="400" y="85" font-family="Arial" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">
+    İBT
+  </text>
+</svg> 

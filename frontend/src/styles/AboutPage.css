@@ -1,0 +1,894 @@
+/* Hakkımızda Sayfası - Modern ve Profesyonel Tasarım */
+:root {
+  /* Renk Paleti - Modern ve Sofistike */
+  --primary-color: #2563eb; /* Daha canlı mavi */
+  --primary-dark: #1e40af;
+  --primary-light: #60a5fa;
+  --secondary-color: #059669; /* Zengin yeşil */
+  --secondary-light: #34d399;
+  --dark-color: #111827;
+  --light-color: #f9fafb;
+  --gray-color: #4b5563;
+  --gray-light: #e5e7eb;
+  --gray-dark: #374151;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  
+  /* Temel Tasarım Değişkenleri */
+  --border-radius-sm: 6px;
+  --border-radius: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+  
+  /* Gölgeler - Daha sofistike */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Gradyanlar - Modern ve sofistike */
+  --gradient-blue: linear-gradient(135deg, #2563eb, #1d4ed8);
+  --gradient-blue-soft: linear-gradient(135deg, #60a5fa, #3b82f6);
+  --gradient-green: linear-gradient(135deg, #059669, #047857);
+  --gradient-mixed: linear-gradient(135deg, #2563eb, #059669);
+  --gradient-dark: linear-gradient(135deg, #111827, #1f2937);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  
+  /* Geçişler ve Animasyonlar */
+  --transition-fast: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --backdrop-blur: blur(20px);
+  
+  /* Boşluklar */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 5rem;
+  --spacing-3xl: 8rem;
+  
+  /* Tipografi Boyutları */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-md: 1.125rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-2xl: 1.875rem;
+  --font-3xl: 2.25rem;
+  --font-4xl: 3rem;
+  --font-5xl: 3.75rem;
+}
+
+/* Temel Sayfa Stilleri */
+.about-page {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--gray-dark);
+  background-color: #fff;
+  line-height: 1.5;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Animasyon Stilleri */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Section - Modern tasarım */
+.about-hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-2xl) 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--light-color);
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(5, 150, 105, 0.04) 0%, transparent 40%);
+  animation: gradientShift 15s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+.about-hero .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-2xl);
+}
+
+.about-hero-content {
+  flex: 1;
+  min-width: 300px;
+  max-width: 650px;
+}
+
+.about-hero-content h1 {
+  font-size: var(--font-4xl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  line-height: 1.1;
+}
+
+.about-subtitle {
+  font-size: var(--font-xl);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+  font-weight: 600;
+  position: relative;
+}
+
+.about-description p {
+  font-size: var(--font-md);
+  line-height: 1.7;
+  color: var(--gray-color);
+  margin-bottom: var(--spacing);
+}
+
+.about-hero-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-hero-icon {
+  width: 180px;
+  height: 180px;
+  background: var(--gradient-blue);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-normal);
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero-icon::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+.about-hero-image:hover .about-hero-icon {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* Bölüm Başlığı Stili */
+.section-title {
+  text-align: center;
+  font-size: var(--font-3xl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--dark-color);
+  position: relative;
+  display: inline-block;
+  left: 40%;
+  transform: translateX(-50%);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-blue);
+  border-radius: 2px;
+}
+
+/* Kuruluş Hikayesi Bölümü */
+.history-section {
+  padding: var(--spacing-3xl) 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.history-section::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 300px;
+  height: 300px;
+  background: rgba(37, 99, 235, 0.03);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.history-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-2xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.history-logo {
+  flex: 0 0 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--light-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  color: var(--primary-color);
+  transition: var(--transition-normal);
+}
+
+.history-logo:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  color: var(--primary-dark);
+}
+
+.history-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.history-text p {
+  font-size: var(--font-md);
+  line-height: 1.8;
+  color: var(--gray-color);
+  margin-bottom: var(--spacing-lg);
+}
+
+.history-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Kilometre Taşları Bölümü */
+.milestones-section {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--light-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.milestones-section::before {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -150px;
+  width: 300px;
+  height: 300px;
+  background: rgba(5, 150, 105, 0.03);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.milestones-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: var(--spacing-2xl) auto 0;
+  z-index: 1;
+}
+
+.milestone-item {
+  position: relative;
+  background: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  transition: var(--transition-normal);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--gray-light);
+  overflow: hidden;
+}
+
+.milestone-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--gradient-blue);
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.milestone-item:hover {
+  transform: translateY(-10px) translateX(5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.milestone-item:hover::before {
+  opacity: 1;
+}
+
+.milestone-year {
+  font-size: var(--font-2xl);
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  background: rgba(37, 99, 235, 0.08);
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing);
+  border-radius: var(--border-radius);
+}
+
+.milestone-content h3 {
+  font-size: var(--font-xl);
+  margin-bottom: var(--spacing-sm);
+  color: var(--dark-color);
+  font-weight: 700;
+}
+
+.milestone-content p {
+  font-size: var(--font-md);
+  color: var(--gray-color);
+  line-height: 1.7;
+}
+
+/* Ekip Bölümü */
+.team-section {
+  padding: var(--spacing-3xl) 0;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-section::after {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 300px;
+  height: 300px;
+  background: rgba(37, 99, 235, 0.03);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+  position: relative;
+  z-index: 1;
+}
+
+.team-member {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition-normal);
+  border: 1px solid var(--gray-light);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.member-image {
+  width: 100%;
+  aspect-ratio: 1 / 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(5, 150, 105, 0.05));
+  position: relative;
+  overflow: hidden;
+}
+
+.member-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to top, white, transparent);
+  z-index: 1;
+}
+
+.member-icon {
+  width: 120px;
+  height: 120px;
+  background: var(--gradient-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.team-member:hover .member-icon {
+  transform: scale(1.1);
+}
+
+.member-info {
+  padding: var(--spacing-lg);
+  text-align: center;
+  background: white;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.member-info h3 {
+  font-size: var(--font-xl);
+  color: var(--dark-color);
+  margin-bottom: var(--spacing-xs);
+  font-weight: 700;
+}
+
+.member-role {
+  color: var(--primary-color);
+  font-size: var(--font-md);
+  margin-bottom: var(--spacing);
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--spacing-sm);
+}
+
+.member-role::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--gradient-blue);
+  border-radius: 1px;
+}
+
+.member-info p {
+  font-size: var(--font-md);
+  line-height: 1.7;
+  color: var(--gray-color);
+}
+
+/* Değerlerimiz Bölümü */
+.values-section {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--light-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.values-section::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: -150px;
+  width: 300px;
+  height: 300px;
+  background: rgba(5, 150, 105, 0.03);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  position: relative;
+  z-index: 1;
+  margin-top: var(--spacing-xl);
+}
+
+.value-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition-normal);
+  border: 1px solid var(--gray-light);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition-normal);
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.value-card:hover::before {
+  transform: scaleX(1);
+}
+
+.value-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+  transition: var(--transition-normal);
+}
+
+.value-card:hover .value-icon {
+  background: var(--primary-color);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: var(--shadow);
+}
+
+.value-card h3 {
+  font-size: var(--font-lg);
+  color: var(--dark-color);
+  margin-bottom: var(--spacing);
+  font-weight: 700;
+}
+
+.value-card p {
+  font-size: var(--font-md);
+  line-height: 1.7;
+  color: var(--gray-color);
+}
+
+/* CTA Bölümü */
+.about-cta-section {
+  padding: var(--spacing-3xl) 0;
+  background: var(--gradient-blue);
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.about-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.about-cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: var(--backdrop-blur);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-xl);
+}
+
+.about-cta-content h2 {
+  font-size: var(--font-3xl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.about-cta-content p {
+  font-size: var(--font-lg);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.about-cta-content .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing) var(--spacing-xl);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: var(--font-md);
+  transition: var(--transition-normal);
+  background: white;
+  color: var(--primary-dark);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.about-cta-content .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0%;
+  height: 100%;
+  background: rgba(37, 99, 235, 0.1);
+  transform: translateX(-50%);
+  transition: width 0.6s ease;
+  z-index: -1;
+}
+
+.about-cta-content .btn:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.about-cta-content .btn:hover::before {
+  width: 110%;
+}
+
+/* Animasyonlar */
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-5%, -5%);
+  }
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 1280px) {
+  :root {
+    --font-4xl: 2.8rem;
+    --font-3xl: 2.2rem;
+    --font-2xl: 1.8rem;
+    --spacing-3xl: 6rem;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --font-4xl: 2.5rem;
+    --font-3xl: 2rem;
+    --font-2xl: 1.6rem;
+    --spacing-3xl: 5rem;
+  }
+
+  .about-hero .container {
+    flex-direction: column;
+  }
+
+  .about-hero-content, .about-hero-image {
+    max-width: 100%;
+  }
+
+  .history-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .history-logo {
+    margin: 0 auto;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-4xl: 2.2rem;
+    --font-3xl: 1.8rem;
+    --font-2xl: 1.5rem;
+    --font-xl: 1.3rem;
+    --spacing-3xl: 4rem;
+    --spacing-2xl: 3rem;
+  }
+
+  .about-hero {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .about-hero-content h1 {
+    font-size: var(--font-3xl);
+  }
+
+  .about-subtitle {
+    font-size: var(--font-lg);
+  }
+
+  .about-description p {
+    font-size: var(--font-base);
+  }
+
+  .section-title {
+    font-size: var(--font-2xl);
+  }
+
+  .history-text p, .milestone-content p, .member-info p, .value-card p {
+    font-size: var(--font-base);
+  }
+
+  .milestone-year {
+    font-size: var(--font-xl);
+  }
+
+  .milestone-content h3 {
+    font-size: var(--font-lg);
+  }
+
+  .member-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .member-info h3 {
+    font-size: var(--font-lg);
+  }
+
+  .member-role {
+    font-size: var(--font-base);
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .about-cta-content h2 {
+    font-size: var(--font-2xl);
+  }
+
+  .about-cta-content p {
+    font-size: var(--font-base);
+  }
+
+  .about-cta-content .btn {
+    padding: var(--spacing) var(--spacing-lg);
+    font-size: var(--font-base);
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --font-4xl: 2rem;
+    --font-3xl: 1.6rem;
+    --font-2xl: 1.4rem;
+    --font-xl: 1.2rem;
+    --spacing-3xl: 3rem;
+    --spacing-2xl: 2.5rem;
+  }
+
+  .container {
+    padding: 0 var(--spacing);
+  }
+
+  .about-hero-content h1 {
+    font-size: var(--font-2xl);
+  }
+
+  .about-subtitle {
+    font-size: var(--font-md);
+  }
+
+  .about-hero-icon {
+    width: 150px;
+    height: 150px;
+  }
+
+  .section-title {
+    font-size: var(--font-xl);
+  }
+
+  .about-cta-content {
+    padding: var(--spacing-lg);
+  }
+
+  .about-cta-content h2 {
+    font-size: var(--font-xl);
+  }
+
+  .milestone-year {
+    font-size: var(--font-lg);
+  }
+
+  .team-grid, .values-grid {
+    grid-template-columns: 1fr;
+  }
+} 
