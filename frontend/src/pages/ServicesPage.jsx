@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FaLaptopCode, FaMobileAlt, FaDesktop, FaBrain, FaDatabase, FaShieldAlt } from 'react-icons/fa';
+import { FaLaptopCode, FaMobileAlt, FaDesktop, FaBrain, FaDatabase, FaShieldAlt, FaLaptop, FaMobile, FaTabletAlt, FaHdd, FaMicrochip, FaFan } from 'react-icons/fa';
 import '../styles/ServicesPage.css';
 
 const ServicesPage = () => {
@@ -9,7 +9,91 @@ const ServicesPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const services = [
+  // Aktif servis kategorisini takip et
+  const [activeCategory, setActiveCategory] = useState('repair');
+
+  const repairServices = [
+    {
+      id: 1,
+      title: 'Laptop Tamiri',
+      description: 'Her marka laptop için profesyonel tamir hizmetleri sunuyoruz. Donanım sorunları, ekran değişimi, klavye tamiri ve daha fazlası için bize ulaşın.',
+      icon: <FaLaptop />,
+      features: [
+        'Anakart tamiri',
+        'Ekran değişimi',
+        'Klavye ve touchpad tamiri',
+        'Şarj soket tamiri',
+        'Termal pasta yenileme'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Telefon Tamiri',
+      description: 'Akıllı telefonunuzun her türlü donanım ve yazılım sorunları için hızlı ve güvenilir çözümler sunuyoruz. Ekran değişimi, batarya değişimi ve su hasarı tamiri gibi hizmetler veriyoruz.',
+      icon: <FaMobile />,
+      features: [
+        'Ekran değişimi',
+        'Batarya değişimi',
+        'Şarj soketi tamiri',
+        'Hoparlör ve mikrofon tamiri',
+        'Yazılım sorunları çözümü'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Tablet Tamiri',
+      description: 'Tabletinizin kırık ekranı, batarya sorunu veya diğer donanım sorunları için profesyonel tamir hizmeti veriyoruz. Tüm tablet markalarına hizmet veriyoruz.',
+      icon: <FaTabletAlt />,
+      features: [
+        'Ekran değişimi',
+        'Batarya değişimi',
+        'Ana kart tamiri',
+        'Şarj soketi tamiri',
+        'Yazılım güncelleme'
+      ]
+    },
+    {
+      id: 4,
+      title: 'SSD Tamiri ve Veri Kurtarma',
+      description: 'Arızalı SSD\'nizden veri kurtarma ve tamir hizmetleri sunuyoruz. Modern ekipmanlarımız ile veri kaybını en aza indiriyoruz.',
+      icon: <FaHdd />,
+      features: [
+        'SSD veri kurtarma',
+        'HDD veri kurtarma',
+        'SSD performans iyileştirme',
+        'Donanımsal arıza tamiri',
+        'Veri yedekleme hizmetleri'
+      ]
+    },
+    {
+      id: 5,
+      title: 'Anakart Tamiri',
+      description: 'Masaüstü ve laptop anakartlarındaki arızalar için mikroskobik düzeyde lehimleme ve tamir hizmetleri sunuyoruz. Profesyonel ekipmanlarımız ile çip seviyesinde tamir yapıyoruz.',
+      icon: <FaMicrochip />,
+      features: [
+        'Çip değişimi',
+        'BGA lehimleme',
+        'Kısa devre tamiri',
+        'BIOS güncelleme',
+        'Anakart diagnostik test'
+      ]
+    },
+    {
+      id: 6,
+      title: 'Soğutma Sistemi Tamiri',
+      description: 'Bilgisayarınızın aşırı ısınma sorunları için soğutma sistemi bakım ve tamir hizmetleri sunuyoruz. Fan değişimi, termal pasta yenileme ve soğutma optimizasyonu yapıyoruz.',
+      icon: <FaFan />,
+      features: [
+        'Fan temizliği ve değişimi',
+        'Termal pasta yenileme',
+        'Soğutma sistemi iyileştirme',
+        'Gürültü azaltma çözümleri',
+        'Hava akışı optimizasyonu'
+      ]
+    }
+  ];
+
+  const extraServices = [
     {
       id: 1,
       title: 'Web Sitesi Geliştirme',
@@ -96,43 +180,90 @@ const ServicesPage = () => {
         <title>Hizmetlerimiz | Bilgisayar Tamir</title>
         <meta 
           name="description" 
-          content="Web sitesi, mobil uygulama, oyun geliştirme ve gömülü sistem hizmetlerimiz hakkında bilgi alın." 
+          content="Bilgisayar tamiri, yazılım geliştirme ve teknoloji çözümleri hakkında bilgi alın." 
         />
       </Helmet>
       
-      
       <div className="services-content">
         <div className="container">
-          <div className="services-intro">
-            <h2>Teknoloji Çözümlerimiz</h2>
-            <p>
-              Bilgisayar Tamir olarak sadece tamir hizmetleri değil, aynı zamanda yazılım geliştirme alanında da geniş bir hizmet yelpazesi sunuyoruz. 
-              Uzman ekibimiz ile modern teknolojileri kullanarak işinizi büyütmenize yardımcı oluyoruz.
-            </p>
+          <div className="services-tabs">
+            <button 
+              className={`tab-button ${activeCategory === 'repair' ? 'active' : ''}`} 
+              onClick={() => setActiveCategory('repair')}
+            >
+              Hizmetlerimiz
+            </button>
+            <button 
+              className={`tab-button ${activeCategory === 'extra' ? 'active' : ''}`} 
+              onClick={() => setActiveCategory('extra')}
+            >
+              Extra Hizmetlerimiz
+            </button>
           </div>
-          
-          <div className="services-grid">
-            {services.map(service => (
-              <div key={service.id} className="service-card">
-                <div className="service-icon">
-                  {service.icon}
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <ul className="service-features">
-                  {service.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
+
+          {activeCategory === 'repair' && (
+            <>
+              <div className="services-intro">
+                <h2>Bilgisayar ve Elektronik Tamir Hizmetlerimiz</h2>
+                <p>
+                  Bilgisayar Tamir olarak tüm elektronik cihazlarınızın bakım ve onarımı için profesyonel hizmet sunuyoruz. 
+                  Uzman teknisyenlerimiz, en son teknoloji ve orijinal parçalar kullanarak cihazlarınızı hızlı ve güvenilir şekilde tamir ediyoruz.
+                </p>
               </div>
-            ))}
-          </div>
+              
+              <div className="services-grid">
+                {repairServices.map(service => (
+                  <div key={service.id} className="service-card">
+                    <div className="service-icon">
+                      {service.icon}
+                    </div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <ul className="service-features">
+                      {service.features.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {activeCategory === 'extra' && (
+            <>
+              <div className="services-intro">
+                <h2>Yazılım ve Teknoloji Çözümlerimiz</h2>
+                <p>
+                  Bilgisayar Tamir olarak sadece tamir hizmetleri değil, aynı zamanda yazılım geliştirme alanında da geniş bir hizmet yelpazesi sunuyoruz. 
+                  Uzman ekibimiz ile modern teknolojileri kullanarak işinizi büyütmenize yardımcı oluyoruz.
+                </p>
+              </div>
+              
+              <div className="services-grid">
+                {extraServices.map(service => (
+                  <div key={service.id} className="service-card">
+                    <div className="service-icon">
+                      {service.icon}
+                    </div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <ul className="service-features">
+                      {service.features.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
           
           <div className="services-cta">
             <h2>Projeniz için Bize Ulaşın</h2>
             <p>
-              Projenizin gereksinimlerini anlamak ve size en uygun çözümü sunmak için ücretsiz danışmanlık hizmeti veriyoruz.
-              Fikirlerinizi hayata geçirmek için hemen iletişime geçin!
+              Elektronik cihaz tamiri veya yazılım projeniz için ücretsiz danışmanlık hizmeti veriyoruz.
+              Sorunlarınızı çözmek ve fikirlerinizi hayata geçirmek için hemen iletişime geçin!
             </p>
             <button className="cta-button">Bize Ulaşın</button>
           </div>

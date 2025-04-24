@@ -7,16 +7,10 @@ import { FaLaptop, FaTools, FaServer, FaDatabase, FaShieldAlt, FaUserCheck,
 import '../styles/HomePage.css';
 
 const HomePage = () => {
-  const [activeService, setActiveService] = useState(0);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Otomatik servis değiştirme
-    const serviceInterval = setInterval(() => {
-      setActiveService(prev => (prev + 1) % services.length);
-    }, 5000);
-
     // Otomatik testimonial değiştirme
     const testimonialInterval = setInterval(() => {
       setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
@@ -59,7 +53,6 @@ const HomePage = () => {
     window.addEventListener('scroll', handleScroll);
     
     return () => {
-      clearInterval(serviceInterval);
       clearInterval(testimonialInterval);
       // Observer'ı temizle
       observer.disconnect();
@@ -102,61 +95,19 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Hizmetler Section */}
-      <section className="services-section animate-section" id="services">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-subtitle">HİZMETLERİMİZ</span>
-            <h2 className="section-title">Uzman Çözümler</h2>
-            <p className="section-description">Bilgisayarınızla ilgili her türlü sorun için profesyonel hizmetler sunuyoruz.</p>
-          </div>
-          
-          <div className="services-tabs">
-            <div className="service-tabs-nav">
-              {services.map((service, index) => (
-                <div 
-                  key={index} 
-                  className={`service-tab-item ${activeService === index ? 'active' : ''}`}
-                  onClick={() => setActiveService(index)}
-                >
-                  <div className="tab-icon">{service.icon}</div>
-                  <span>{service.title}</span>
-                </div>
-              ))}
-            </div>
-            
-            <div className="service-tabs-content">
-              {services.map((service, index) => (
-                <div 
-                  key={index} 
-                  className={`service-tab-content ${activeService === index ? 'active' : ''}`}
-                >
-                  <div className="service-tab-content-inner">
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
-                    <ul className="service-features">
-                      {service.items.map((item, i) => (
-                        <li key={i}>
-                          <FaCheck className="check-icon" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link to="/hizmetler" className="btn btn-primary">Detaylı Bilgi</Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Neden Biz Section */}
       <section className="benefits-section animate-section" id="benefits">
         <div className="container">
-          <div className="section-header">
-            <span className="section-subtitle">NEDEN BİZ?</span>
-            <h2 className="section-title">Farkımız</h2>
+          <div className="section-header modern-header">
+            <div className="header-line-container">
+              <div className="header-title-wrapper left">
+                <span className="section-subtitle">NEDEN BİZ?</span>
+              </div>
+              <div className="connecting-line"></div>
+              <div className="header-title-wrapper right">
+                <h2 className="section-title">Farkımız</h2>
+              </div>
+            </div>
             <p className="section-description">Müşteri memnuniyeti ve kaliteli hizmet için çalışıyoruz.</p>
           </div>
           <div className="benefits-grid">
@@ -176,9 +127,16 @@ const HomePage = () => {
       {/* Nasıl Çalışıyoruz Section */}
       <section className="process-section animate-section" id="process">
         <div className="container">
-          <div className="section-header">
-            <span className="section-subtitle">ÇALIŞMA SÜRECİMİZ</span>
-            <h2 className="section-title">Nasıl Çalışıyoruz?</h2>
+          <div className="section-header modern-header">
+            <div className="header-line-container">
+              <div className="header-title-wrapper left">
+                <span className="section-subtitle">ÇALIŞMA SÜRECİMİZ</span>
+              </div>
+              <div className="connecting-line"></div>
+              <div className="header-title-wrapper right">
+                <h2 className="section-title">Nasıl Çalışıyoruz?</h2>
+              </div>
+            </div>
             <p className="section-description">Basit ve etkili süreçle sorununuzu çözüyoruz</p>
           </div>
           <div className="process-steps">
@@ -217,9 +175,16 @@ const HomePage = () => {
       {/* Müşteri Yorumları */}
       <section className="testimonials-section animate-section" id="testimonials">
         <div className="container">
-          <div className="section-header">
-            <span className="section-subtitle">MÜŞTERİ YORUMLARI</span>
-            <h2 className="section-title">Bizimle Çalışanlar Ne Diyor?</h2>
+          <div className="section-header modern-header">
+            <div className="header-line-container">
+              <div className="header-title-wrapper left">
+                <span className="section-subtitle">MÜŞTERİ YORUMLARI</span>
+              </div>
+              <div className="connecting-line"></div>
+              <div className="header-title-wrapper right">
+                <h2 className="section-title">Bizimle Çalışanlar Ne Diyor?</h2>
+              </div>
+            </div>
             <p className="section-description">Müşterilerimizin bizimle ilgili deneyimleri</p>
           </div>
           <div className="testimonials-slider">
@@ -272,73 +237,18 @@ const HomePage = () => {
       {/* Map Section */}
       <div className="map-section">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96228.67434380088!2d28.825527642968756!3d41.043442699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabbb8dab9c259%3A0x1601b5ff29f5e72c!2sBilgisayar%20Teknik%20Servis!5e0!3m2!1str!2str!4v1655116035236!5m2!1str!2str"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.0985507092815!2d29.09035231566054!3d41.02283732665726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac8a355a95dbb%3A0xc2285ec9b9c8adf5!2zQWxlbWRhxJ8gQ2QuLCBSw7x6Z2FybMSxIFNrLiBObzozL0EsIDM0NDYwIMOcbXJhbml5ZS_EsHN0YW5idWw!5e0!3m2!1str!2str!4v1713879393563!5m2!1str!2str"
           width="100%"
           height="450"
           allowFullScreen=""
           loading="lazy"
-          title="Bilgisayar Teknik Servis Konumu"
+          title="İBT Bilgisayar Tamiri - Ümraniye İstanbul"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
     </div>
   );
 };
-
-// Servisler
-const services = [
-  {
-    title: "Bilgisayar Tamiri",
-    icon: <FaLaptop />,
-    description: "Masaüstü ve dizüstü bilgisayarlarınızın donanımsal ve yazılımsal tüm sorunlarını çözüyoruz.",
-    items: [
-      "Anakart, işlemci, RAM ve ekran kartı arızaları",
-      "Ekran, klavye ve batarya değişimi",
-      "Disk arızaları ve veri kurtarma",
-      "Yazılım hataları ve sistem güncellemeleri",
-      "Aşırı ısınma sorunları",
-      "Performans optimizasyonu"
-    ]
-  },
-  {
-    title: "Teknik Destek",
-    icon: <FaTools />,
-    description: "İşletmeniz veya ev kullanımınız için profesyonel ve hızlı teknik destek hizmetleri sunuyoruz.",
-    items: [
-      "7/24 uzaktan teknik destek imkanı",
-      "İşletim sistemi kurulumu ve yapılandırma",
-      "Driver ve yazılım güncellemeleri",
-      "Virüs ve malware temizliği",
-      "Yazıcı ve çevre birimleri kurulumu",
-      "Uzaktan masaüstü desteği"
-    ]
-  },
-  {
-    title: "Ağ Hizmetleri",
-    icon: <FaNetworkWired />,
-    description: "Ev ve küçük işletmeler için ağ kurulum, güvenlik ve bakım hizmetleri sağlıyoruz.",
-    items: [
-      "Kablosuz ağ kurulumu ve optimizasyonu",
-      "Router, modem ve ağ donanım kurulumu",
-      "Ağ güvenliği ve güvenlik duvarı yapılandırma",
-      "İnternet bağlantı sorunları çözümü",
-      "VPN kurulumu ve yapılandırma",
-      "Ofis ağ altyapısı tasarımı"
-    ]
-  },
-  {
-    title: "Veri Kurtarma",
-    icon: <FaDatabase />,
-    description: "Kayıp verilerinizi kurtarıyor, veri güvenliği ve yedekleme çözümleri sunuyoruz.",
-    items: [
-      "Arızalı disklerden veri kurtarma",
-      "Silinen dosyaların geri getirilmesi",
-      "Biçimlendirilmiş disklerden veri kurtarma",
-      "Dosya sistemi hataları onarımı",
-      "Bulut yedekleme çözümleri",
-      "Veri güvenliği danışmanlığı"
-    ]
-  }
-];
 
 // Avantajlar
 const benefits = [
