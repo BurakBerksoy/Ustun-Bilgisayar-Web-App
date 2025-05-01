@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 import { FaLaptop, FaTools, FaServer, FaDatabase, FaShieldAlt, FaUserCheck, 
          FaClock, FaHeadset, FaStar, FaCheck, FaDesktop, FaMicrochip, 
          FaNetworkWired, FaLightbulb, FaCogs, FaBrain } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import '../styles/HomePage.css';
 
 const HomePage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [showGalleryModal, setShowGalleryModal] = useState(false);
 
   useEffect(() => {
     // Otomatik testimonial değiştirme
@@ -60,6 +64,61 @@ const HomePage = () => {
     };
   }, []);
 
+  // Popup Modal
+  const renderGalleryModal = () => {
+    if (!showGalleryModal) return null;
+    
+    return createPortal(
+      <div className="gallery-modal">
+        <div className="gallery-modal-backdrop" onClick={() => setShowGalleryModal(false)}></div>
+        <div className="gallery-modal-content">
+          <button className="gallery-close-btn" onClick={() => setShowGalleryModal(false)}>
+            <FaTimes />
+          </button>
+          
+          <div className="gallery-image-container">
+            <div className="gallery-images" style={{ transform: `translateX(-${currentImage * 100}%)` }}>
+              <div className="gallery-image">
+                <img src="/assets/images/computer-repair-1.jpg" alt="Bilgisayar Tamiri" />
+              </div>
+              <div className="gallery-image">
+                <img src="/assets/images/computer-repair-2.jpg" alt="Laptop Tamiri" />
+              </div>
+              <div className="gallery-image">
+                <img src="/assets/images/computer-repair-3.jpg" alt="Ekran Tamiri" />
+              </div>
+            </div>
+          </div>
+          
+          <div className="gallery-controls">
+            <button 
+              className="gallery-nav-btn prev" 
+              onClick={() => setCurrentImage(prev => (prev === 0 ? 2 : prev - 1))}
+            >
+              <FaArrowLeft />
+            </button>
+            <div className="gallery-indicators">
+              {[0, 1, 2].map(index => (
+                <span 
+                  key={index} 
+                  className={`gallery-indicator ${currentImage === index ? 'active' : ''}`}
+                  onClick={() => setCurrentImage(index)}
+                />
+              ))}
+            </div>
+            <button 
+              className="gallery-nav-btn next" 
+              onClick={() => setCurrentImage(prev => (prev === 2 ? 0 : prev + 1))}
+            >
+              <FaArrowRight />
+            </button>
+          </div>
+        </div>
+      </div>,
+      document.body
+    );
+  };
+  
   return (
     <div className="home-page" style={{ width: '100vw', maxWidth: '100vw', overflow: 'hidden' }}>
       <Helmet>
@@ -69,6 +128,9 @@ const HomePage = () => {
           content="İstanbul'un en güvenilir ve profesyonel bilgisayar, laptop tamir ve bakım hizmetleri. Yerinde servis ve uygun fiyatlarla hizmetinizdeyiz." 
         />
       </Helmet>
+      
+      {/* Popup modalini renderGalleryModal fonksiyonu ile render et */}
+      {renderGalleryModal()}
 
       {/* Hero Section */}
       <section className="hero-section animate-section visible" id="hero">
@@ -89,6 +151,17 @@ const HomePage = () => {
               <div className="hero-buttons">
                 <a href="tel:+905326109511" className="btn btn-primary">Hemen Ara: 0532 610 95 11</a>
                 <a href="https://api.whatsapp.com/send?phone=905326109511" className="btn btn-outline">WhatsApp İletişim</a>
+              </div>
+            </div>
+            
+            <div className="hero-image-preview" onClick={() => setShowGalleryModal(true)}>
+              <div className="image-circle">
+                <img src="/assets/images/computer-repair-1.jpg" alt="Bilgisayar Tamiri" />
+              </div>
+              <div className="preview-overlay">
+                <div className="view-gallery-text">
+                  Resimleri görmek için tıklayın
+                </div>
               </div>
             </div>
           </div>

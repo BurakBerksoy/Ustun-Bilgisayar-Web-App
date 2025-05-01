@@ -192,6 +192,258 @@ section {
 }
 
 /* Responsive düzenlemeler */
+/* Yuvarlak Resim Önizleme */
+.hero-image-preview {
+  flex: 0 0 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.hero-image-preview:hover {
+  transform: scale(1.05);
+}
+
+.image-circle {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 15px rgba(79, 70, 229, 0.1);
+  transition: box-shadow 0.4s ease;
+}
+
+.image-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.image-circle:hover img {
+  transform: scale(1.1);
+}
+
+.preview-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-image-preview:hover .preview-overlay {
+  opacity: 1;
+}
+
+.view-gallery-text {
+  color: white;
+  background: rgba(79, 70, 229, 0.85);
+  padding: 12px 20px;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+}
+
+/* Galeri Modal Stili - Kurumsal ve Çok Profesyonel */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+}
+
+.gallery-modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  max-width: 1100px;
+  height: 80vh;
+  max-height: 750px;
+  background: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  cursor: pointer;
+  z-index: 20;
+  color: white;
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.gallery-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.gallery-image-container {
+  width: 100%;
+  height: calc(80vh - 80px);
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-images {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gallery-image {
+  min-width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.gallery-controls {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #232323;
+  height: 80px;
+  box-sizing: border-box;
+  z-index: 5;
+}
+
+.gallery-nav-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.gallery-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.gallery-indicators {
+  display: flex;
+  gap: 10px;
+}
+
+.gallery-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.gallery-indicator.active {
+  background: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .image-circle {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .gallery-image-container {
+    height: calc(100vh - 180px);
+    max-height: 500px;
+  }
+}
+
 @media (max-width: 768px) {
   .header-line-container {
     flex-direction: column;
@@ -319,8 +571,8 @@ section {
 
 /* Hero Bölümü - Ciddi ve Profesyonel */
 .hero-section {
-  height: 100vh;
-  min-height: 100vh;
+  height: 78vh;
+  min-height: 78vh;
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -372,8 +624,8 @@ section {
 }
 
 .hero-text {
-  flex: 1;
-  max-width: 650px;
+  flex: 0 0 50%;
+  max-width: 550px;
 }
 
 .hero-text h1 {

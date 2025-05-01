@@ -28,67 +28,106 @@ const ServicesPage = () => {
     },
     {
       id: 2,
-      title: 'Telefon Tamiri',
-      description: 'Akıllı telefonunuzun her türlü donanım ve yazılım sorunları için hızlı ve güvenilir çözümler sunuyoruz. Ekran değişimi, batarya değişimi ve su hasarı tamiri gibi hizmetler veriyoruz.',
-      icon: <FaMobile />,
+      title: 'Kasa Tamiri',
+      description: 'Masaüstü bilgisayar kasalarınızdaki her türlü donanımsal sorunu profesyonel ekibimizle çözüyoruz. Güç kaynağı, fan, kasa ön panel sorunları için hizmet sunuyoruz.',
+      icon: <FaDesktop />,
       features: [
-        'Ekran değişimi',
-        'Batarya değişimi',
-        'Şarj soketi tamiri',
-        'Hoparlör ve mikrofon tamiri',
-        'Yazılım sorunları çözümü'
+        'Güç kaynağı değişimi',
+        'Kasa fanı tamiri',
+        'Ön panel bağlantı sorunları',
+        'Soğutma sistemi optimizasyonu',
+        'Kasa iyileştirme ve bakım'
       ]
     },
     {
       id: 3,
-      title: 'Tablet Tamiri',
-      description: 'Tabletinizin kırık ekranı, batarya sorunu veya diğer donanım sorunları için profesyonel tamir hizmeti veriyoruz. Tüm tablet markalarına hizmet veriyoruz.',
-      icon: <FaTabletAlt />,
+      title: 'Monitör Tamiri',
+      description: 'Her marka ve model monitör için profesyonel tamir hizmetleri sunuyoruz. Ekran sorunları, bağlantı arızaları ve güç problemleri için çözümler üretiyoruz.',
+      icon: <FaDesktop />,
       features: [
-        'Ekran değişimi',
-        'Batarya değişimi',
-        'Ana kart tamiri',
-        'Şarj soketi tamiri',
-        'Yazılım güncelleme'
+        'Panel değişimi',
+        'Güç devresi tamiri',
+        'HDMI/DisplayPort/VGA portu tamiri',
+        'Monitör ekran kalibrasyonu',
+        'Monitör güç kaynağı değişimi'
       ]
     },
     {
       id: 4,
-      title: 'SSD Tamiri ve Veri Kurtarma',
-      description: 'Arızalı SSD\'nizden veri kurtarma ve tamir hizmetleri sunuyoruz. Modern ekipmanlarımız ile veri kaybını en aza indiriyoruz.',
-      icon: <FaHdd />,
+      title: 'Güvenlik Kamerası Tamiri',
+      description: 'Güvenlik kamera sistemlerinizin bakım, onarım ve kurulumunu gerçekleştiriyoruz. Her marka için profesyonel teknik destek sağlıyoruz.',
+      icon: <FaShieldAlt />,
       features: [
-        'SSD veri kurtarma',
-        'HDD veri kurtarma',
-        'SSD performans iyileştirme',
-        'Donanımsal arıza tamiri',
-        'Veri yedekleme hizmetleri'
+        'Kamera lens değişimi',
+        'DVR/NVR cihaz tamiri',
+        'Bağlantı sorunları çözümü',
+        'Görüntü kalitesi iyileştirme',
+        'Güvenlik sistemi bakımı'
       ]
     },
     {
       id: 5,
-      title: 'Anakart Tamiri',
-      description: 'Masaüstü ve laptop anakartlarındaki arızalar için mikroskobik düzeyde lehimleme ve tamir hizmetleri sunuyoruz. Profesyonel ekipmanlarımız ile çip seviyesinde tamir yapıyoruz.',
-      icon: <FaMicrochip />,
+      title: 'Klavye Tamiri',
+      description: 'Her türlü mekanik, membran ve kablosuz klavye tamiri için profesyonel hizmet sunuyoruz. Sıvı teması, tuş sorunları ve bağlantı problemlerini çözüyoruz.',
+      icon: <FaLaptopCode />,
       features: [
-        'Çip değişimi',
-        'BGA lehimleme',
-        'Kısa devre tamiri',
-        'BIOS güncelleme',
-        'Anakart diagnostik test'
+        'Tuş değişimi',
+        'Sıvı hasarı temizliği',
+        'Bağlantı kablosu tamiri',
+        'Membran değişimi',
+        'Switch değişimi ve bakımı'
       ]
     },
     {
       id: 6,
-      title: 'Soğutma Sistemi Tamiri',
-      description: 'Bilgisayarınızın aşırı ısınma sorunları için soğutma sistemi bakım ve tamir hizmetleri sunuyoruz. Fan değişimi, termal pasta yenileme ve soğutma optimizasyonu yapıyoruz.',
+      title: 'Mouse Tamiri',
+      description: 'Her marka mouse için tamir ve bakım hizmetleri sunuyoruz. Tıklama sorunları, sensor arızaları ve kablo problemlerini profesyonel olarak çözüyoruz.',
+      icon: <FaMobileAlt />,
+      features: [
+        'Switch değişimi',
+        'Sensor tamiri',
+        'Kablo değişimi',
+        'Scroll tekerlek tamiri',
+        'Performans iyileştirme'
+      ]
+    },
+    {
+      id: 7,
+      title: 'Yazıcı Tamiri',
+      description: 'Lazer, mürekkep püskürtmeli ve matris yazıcılarınız için tamir ve bakım hizmetleri sunuyoruz. Baskı kalitesi sorunları, kağıt sıkışması ve bağlantı problemlerini çözüyoruz.',
+      icon: <FaMicrochip />,
+      features: [
+        'Bakım kiti değişimi',
+        'Kartuş yuvası tamiri',
+        'Sensör temizliği ve değişimi',
+        'Silindir takımı yenileme',
+        'Yazılım güncellemeleri'
+      ]
+    },
+    {
+      id: 8,
+      title: 'Hoparlör ve Mikrofon Tamiri',
+      description: 'Bilgisayar hoparlörleri, kulaklıklar ve mikrofonlarınız için tamir hizmetleri sunuyoruz. Ses kalitesi sorunları, bağlantı problemleri ve fiziksel hasarları gideriyoruz.',
       icon: <FaFan />,
       features: [
-        'Fan temizliği ve değişimi',
-        'Termal pasta yenileme',
-        'Soğutma sistemi iyileştirme',
-        'Gürültü azaltma çözümleri',
-        'Hava akışı optimizasyonu'
+        'Hoparlör değişimi',
+        'Kablo tamiri',
+        'Mikrofon membranı değişimi',
+        'Kulaklık tamiri',
+        'Ses kalitesi optimizasyonu'
+      ]
+    },
+    {
+      id: 9,
+      title: 'Network Donanımları Tamiri',
+      description: 'Router, modem, switch ve diğer ağ cihazlarınız için profesyonel tamir hizmetleri sunuyoruz. Bağlantı sorunları, yapılandırma ve donanım arızalarını gideriyoruz.',
+      icon: <FaDatabase />,
+      features: [
+        'Router/Modem tamiri',
+        'Anten değişimi',
+        'Switch port tamiri',
+        'Firmware güncelleme',
+        'Ağ performans optimizasyonu'
       ]
     }
   ];

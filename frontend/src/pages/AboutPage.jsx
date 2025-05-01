@@ -30,22 +30,22 @@ const AboutPage = () => {
     {
       year: "2000",
       title: "Şirket Kuruluşu",
-      description: "İlk mağazamızı İstanbul Kadıköy'de açtık."
+      description: "İlk mağazamızı Ümraniye Armağanevler'de açtık."
     },
     {
-      year: "2008",
-      title: "Büyüme ve Genişleme",
-      description: "İkinci şubemizi Beşiktaş'ta açtık ve teknik ekibimiz iki katına çıktı."
+      year: "2017",
+      title: "Taşınma ve Yenilenme",
+      description: "17 yıl hizmet verdikten sonra Yamanevler Rüzgarlı Sokak'taki yeni yerimize taşındık."
     },
     {
-      year: "2015",
-      title: "Kurumsal Hizmet",
-      description: "Kurumsal müşterilere özel hizmet vermeye başladık."
+      year: "2020",
+      title: "20. Yıl Dönümü",
+      description: "Teknoloji alanında 20 yıllık tecrübeye ulaştık ve hizmet ağımızı genişlettik."
     },
     {
       year: "2025",
-      title: "Online Platform",
-      description: "Online randevu sistemi ve uzaktan destek hizmetlerimizi başlattık."
+      title: "25. Yıl",
+      description: "Çeyrek asırlık tecrübemizle bölgenin en güvenilir bilgisayar servis noktası olduk."
     }
   ];
 
@@ -64,9 +64,9 @@ const AboutPage = () => {
         <div className="container">
           <div className="about-hero-content">
             <h1 className="animate-on-scroll">Biz Kimiz?</h1>
-            <div className="about-subtitle animate-on-scroll">İstanbul'un En Güvenilir Bilgisayar Tamircisi</div>
             <div className="about-description animate-on-scroll">
-              <p>25 yıldır sektörde lider konumda olan Üstün Bilgisayar, bilgisayar ve laptop tamir hizmetlerinde güvenilir çözüm ortağınızdır. Deneyimli ekibimiz ve profesyonel yaklaşımımızla teknoloji sorunlarınıza hızlı ve kalıcı çözümler sunuyoruz.</p>
+              <p>Bilgisayar teknolojisi çağımızın en hızlı gelişen ve yenilenen teknolojik alanıdır. Üstün Bilgisayar olarak, İntel, Amd, Microsoft, Kingston, Samsung, Asus, ve daha bir çok markanın geliştirdiği en ileri teknolojileri ürettiği Bilgisayar Sistemlerinde kullanır ve sizin hizmetinize sunar.</p>
+              <p>Üstün Bilgisayar, bilişim teknolojileri alanında ihtiyaç duyulan teknik servis hizmetlerini markaya bağımsız, müşteri istek ve memnuniyetini ön planda tutarak, en kısa sürede, kaliteli, ekonomik, yaygın, verimli ve planlı bir biçimde sağlamaktadır.</p>
             </div>
           </div>
           <div className="about-hero-image animate-on-scroll">
@@ -86,8 +86,8 @@ const AboutPage = () => {
               <FaHistory size={80} />
             </div>
             <div className="history-text">
-              <p>2000 yılında küçük bir dükkanda başlayan yolculuğumuz, bugün İstanbul'un farklı noktalarında hizmet veren profesyonel bir işletmeye dönüştü. Teknoloji alanındaki tutkumuz ve müşteri memnuniyetine verdiğimiz önem, bizi sektörün lider firmalarından biri haline getirdi.</p>
-              <p>Misyonumuz, teknoloji kullanıcılarının sorunlarına hızlı ve ekonomik çözümler sunarak dijital hayatlarını kesintisiz sürdürmelerini sağlamaktır. Biz sadece tamir hizmeti vermiyoruz; aynı zamanda danışmanlık yaparak müşterilerimizin doğru teknoloji kararları almalarına yardımcı oluyoruz.</p>
+              <p>Nisan 2000'de Ümraniye Armağanevler'de başlayan hizmet yolculuğumuz halen mevcut adresimizde (Yamanevler) devam etmektedir. 17 yıl Armağanevler'de, 8 yıldır ise Yamanevler Rüzgarlı Sokak'ta toplam 25 yıldır Ümraniye başta olmak üzere tüm çevre ilçelere bilgisayar satış ve teknik servis hizmetlerini en kaliteli şekilde vermeye çalıştık.</p>
+              <p>Müşterilerimiz için ihtiyaç, performans, fiyat denklemini çözmek önceliğimiz olmuştur. Biz sadece teknik servis hizmeti vermiyoruz; aynı zamanda danışmanlık yaparak müşterilerimizin doğru teknoloji kararları almalarına yardımcı oluyoruz.</p>
             </div>
           </div>
         </div>
@@ -127,22 +127,22 @@ const AboutPage = () => {
             <div className="value-card animate-on-scroll">
               <div className="value-icon"><FaCheckCircle size={40} /></div>
               <h3>Kalite</h3>
-              <p>Her tamirde en yüksek kalite standartlarını sağlamak için orijinal veya muadil yüksek kalite parçalar kullanıyoruz.</p>
+              <p>Bütün dünyaya yayılmış teknoloji ve donanım üreticileri, hergün onlarca yeni ürün ve teknoloji geliştirmektedir. Bunların takip edilmesi, değerlendirilmesi ve ileri ürünlerin tedarik edilmesi önceliğimizdir.</p>
             </div>
             <div className="value-card animate-on-scroll">
               <div className="value-icon"><FaHandshake size={40} /></div>
-              <h3>Dürüstlük</h3>
-              <p>Müşterilerimizle şeffaf bir iletişim kurarak, gerçek sorunları ve en uygun çözüm yollarını paylaşıyoruz.</p>
+              <h3>Maksimum Performans</h3>
+              <p>Her bilgisayarı test etmekte ve bu testlerin sonucunda ortaya çıkan en yüksek performanslı, en stabil çalışan ürünü sizlere sunmaktayız.</p>
             </div>
             <div className="value-card animate-on-scroll">
               <div className="value-icon"><FaLightbulb size={40} /></div>
-              <h3>Yenilikçilik</h3>
-              <p>Sürekli kendimizi geliştirerek en son teknolojileri ve tamir yöntemlerini takip ediyoruz.</p>
+              <h3>Uyumluluk</h3>
+              <p>Farklı üreticiler tarafından üretilen ürünlerin birbirleriyle uyumlu çalışmaları için doğru ürünleri bir araya getiriyoruz.</p>
             </div>
             <div className="value-card animate-on-scroll">
               <div className="value-icon"><FaHeadset size={40} /></div>
               <h3>Müşteri Odaklılık</h3>
-              <p>Her müşterimizin ihtiyaçlarını anlamak ve en iyi hizmeti sunmak için çaba gösteriyoruz.</p>
+              <p>Müşteri istek ve memnuniyetini ön planda tutarak, en kısa sürede, kaliteli, ekonomik, yaygın ve verimli hizmet sağlıyoruz.</p>
             </div>
           </div>
         </div>
@@ -153,7 +153,7 @@ const AboutPage = () => {
         <div className="container">
           <div className="about-cta-content animate-on-scroll">
             <h2>Bilgisayar Sorunlarınız mı Var?</h2>
-            <p>25 yıllık deneyimimizle yanınızdayız. Sorunlarınızı çözmek için buradayız!</p>
+            <p>25 yıllık deneyimimizle sizin için ihtiyaç, performans ve fiyat denklemini en iyi şekilde çözmek için buradayız!</p>
             <a href="https://api.whatsapp.com/send?phone=905326109511" className="btn btn-primary">Hemen Ara</a>
           </div>
         </div>
