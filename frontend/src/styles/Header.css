@@ -305,23 +305,13 @@
   
   .nav-controls {
     position: fixed;
-    bottom: 30px;
-    left: 0;
-    width: 100%;
+    top: 0;
+    right: 70px;
+    height: 70px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(30px);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 101;
-  }
-  
-  .navigation.active ~ .nav-controls {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    transition-delay: 0.5s;
   }
   
   .contact-button {
@@ -341,18 +331,27 @@
   }
   
   .logo-text {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
   .header .container {
-    padding: 0 15px;
+    padding: 0 10px;
   }
   
   .contact-button {
-    padding: 0.7rem 1.5rem;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .contact-button span {
+    display: none;
   }
   
   .phone-icon {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    margin-right: 0;
+  }
+  
+  .nav-controls {
+    right: 60px;
   }
 } 

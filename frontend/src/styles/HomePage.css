@@ -1261,16 +1261,43 @@ section {
     --spacing-3xl: 5rem;
   }
 
-  .hero-content {
-    flex-direction: column;
+  .hero-section {
+    min-height: auto;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    height: auto;
   }
 
-  .hero-text, .hero-banner {
+  .hero-content {
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+
+  .hero-text {
+    flex: 1 1 auto;
     max-width: 100%;
+    text-align: center;
+    order: 1;
   }
 
   .hero-banner {
-    margin-top: var(--spacing-lg);
+    max-width: 100%;
+    margin-top: 0;
+    order: 2;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
   }
 
   .benefits-grid {
@@ -1291,21 +1318,46 @@ section {
   }
 
   .hero-section {
-    padding: var(--spacing-xl) 0;
+    padding: 90px 0 20px 0;
     min-height: auto;
   }
 
+  .hero-content {
+    padding-top: 10px;
+  }
+
+  .hero-text {
+    padding: 0 10px;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
   .hero-text p {
-    font-size: var(--font-md);
+    font-size: 14px;
+    margin-bottom: 20px;
   }
 
   .hero-buttons {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
     width: 100%;
   }
 
-  .btn {
-    width: 100%;
+  .hero-buttons .btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    min-width: 140px;
+    flex: 0 0 auto;
+    margin: 0 5px 10px;
+  }
+
+  .hero-image-preview {
+    margin-top: 15px;
   }
 
   .hero-features {
