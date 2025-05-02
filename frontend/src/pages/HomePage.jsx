@@ -8,6 +8,12 @@ import { FaLaptop, FaTools, FaServer, FaDatabase, FaShieldAlt, FaUserCheck,
 import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import '../styles/HomePage.css';
 
+// Resim importları
+import img1 from '../images/2-d9de38.png';
+import img2 from '../images/asus-tuf-gaming-kasa.jpg';
+import img3 from '../images/kirmizi-mini-itx-kasa-996-d76bd4.jpg';
+import img4 from '../images/phanteks-enthoo-pro2-server-kapali-panel-bilgisayar-kasa-coraxalpha-01_13.07.2023_0d7b7c4.jpg';
+
 const HomePage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -79,13 +85,16 @@ const HomePage = () => {
           <div className="gallery-image-container">
             <div className="gallery-images" style={{ transform: `translateX(-${currentImage * 100}%)` }}>
               <div className="gallery-image">
-                <img src="/assets/images/computer-repair-1.jpg" alt="Bilgisayar Tamiri" />
+                <img src={img1} alt="Bilgisayar Parçaları" />
               </div>
               <div className="gallery-image">
-                <img src="/assets/images/computer-repair-2.jpg" alt="Laptop Tamiri" />
+                <img src={img2} alt="Asus TUF Gaming Kasa" />
               </div>
               <div className="gallery-image">
-                <img src="/assets/images/computer-repair-3.jpg" alt="Ekran Tamiri" />
+                <img src={img3} alt="Kırmızı Mini ITX Kasa" />
+              </div>
+              <div className="gallery-image">
+                <img src={img4} alt="Phanteks Enthoo Pro2 Server Kasa" />
               </div>
             </div>
           </div>
@@ -93,12 +102,12 @@ const HomePage = () => {
           <div className="gallery-controls">
             <button 
               className="gallery-nav-btn prev" 
-              onClick={() => setCurrentImage(prev => (prev === 0 ? 2 : prev - 1))}
+              onClick={() => setCurrentImage(prev => (prev === 0 ? 3 : prev - 1))}
             >
               <FaArrowLeft />
             </button>
             <div className="gallery-indicators">
-              {[0, 1, 2].map(index => (
+              {[0, 1, 2, 3].map(index => (
                 <span 
                   key={index} 
                   className={`gallery-indicator ${currentImage === index ? 'active' : ''}`}
@@ -108,7 +117,7 @@ const HomePage = () => {
             </div>
             <button 
               className="gallery-nav-btn next" 
-              onClick={() => setCurrentImage(prev => (prev === 2 ? 0 : prev + 1))}
+              onClick={() => setCurrentImage(prev => (prev === 3 ? 0 : prev + 1))}
             >
               <FaArrowRight />
             </button>
@@ -156,7 +165,7 @@ const HomePage = () => {
             
             <div className="hero-image-preview" onClick={() => setShowGalleryModal(true)}>
               <div className="image-circle">
-                <img src="/assets/images/computer-repair-1.jpg" alt="Bilgisayar Tamiri" />
+                <img src={img2} alt="Bilgisayar Kasaları" />
               </div>
               <div className="preview-overlay">
                 <div className="view-gallery-text">
