@@ -10,6 +10,7 @@ import AboutPage from './pages/AboutPage';
 import Dashboard from './pages/Dashboard';
 import ProductsPage from './pages/ProductsPage';
 import ServicesPage from './pages/ServicesPage';
+import FaqPage from './pages/FaqPage';
 
 // Bileşenler
 import Header from './components/Header';
@@ -38,6 +39,7 @@ function App() {
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/sss" element={<FaqPage />} />
             
             {/* 404 Sayfası */}
             <Route path="*" element={<NotFound />} />

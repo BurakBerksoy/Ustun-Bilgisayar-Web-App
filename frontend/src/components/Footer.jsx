@@ -43,6 +43,7 @@ const Footer = () => {
               <li><Link to="/" onClick={() => window.scrollTo(0, 0)}>Ana Sayfa</Link></li>
               <li><Link to="/about" onClick={() => window.scrollTo(0, 0)}>Hakkımızda</Link></li>
               <li><Link to="/products" onClick={() => window.scrollTo(0, 0)}>Ürünlerimiz</Link></li>
+              <li><Link to="/sss" onClick={() => window.scrollTo(0, 0)}>En Çok Sorulan Sorular</Link></li>
             </ul>
           </div>
           

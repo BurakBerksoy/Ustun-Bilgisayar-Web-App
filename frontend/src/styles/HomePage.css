@@ -201,85 +201,64 @@ section {
   cursor: pointer;
   position: relative;
   transition: transform 0.3s ease;
-  border-radius: 24px;
-  padding: 15px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(15, 23, 42, 0.3));
-  backdrop-filter: blur(5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  align-self: center;
+  height: 360px;
+  margin-top: 70px;
 }
 
 .hero-image-preview:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .image-circle {
   width: 320px;
   height: 320px;
-  border-radius: 50%;
   overflow: hidden;
-  border: 8px solid rgba(255, 255, 255, 0.15);
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 15px rgba(79, 70, 229, 0.2);
-  transition: box-shadow 0.4s ease;
-  animation: pulse 3s infinite ease-in-out;
 }
 
 .image-circle img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
 .image-circle:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .preview-overlay {
   position: absolute;
   inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(15, 23, 42, 0.7);
   opacity: 1;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .hero-image-preview:hover .preview-overlay {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .view-gallery-text {
   color: white;
-  background: rgba(79, 70, 229, 0.85);
-  padding: 12px 20px;
-  border-radius: var(--border-radius);
-  font-size: 16px;
-  font-weight: 600;
+  background: var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  letter-spacing: 0.5px;
-  margin-top: 10px;
-  transform: translateY(0);
-  position: relative;
-  z-index: 2;
-  animation: bounce 2s infinite ease-in-out;
   white-space: nowrap;
 }
 
-/* Animasyonlar */
-@keyframes pulse {
-  0% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 15px rgba(79, 70, 229, 0.2); }
-  50% { box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 0 20px rgba(79, 70, 229, 0.3); }
-  100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 15px rgba(79, 70, 229, 0.2); }
-}
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
 
 /* Galeri Modal Stili - Kurumsal ve Çok Profesyonel */
 .gallery-modal {
@@ -657,18 +636,18 @@ section {
 /* Hero içerik */
 .hero-content {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 60px;
+  align-items: center;
   position: relative;
-  z-index: 10;
-  padding: 80px 0;
-  width: 100%;
+  z-index: 5;
+  height: 100%;
+  gap: 40px;
 }
 
 .hero-text {
-  flex: 0 0 50%;
+  flex: 0 0 45%;
   max-width: 550px;
+  align-self: center;
 }
 
 .hero-text h1 {
