@@ -16,8 +16,24 @@
   align-items: center;
   z-index: 1000;
   animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px); /* Arka planı bulanıklaştırır */
+  -webkit-backdrop-filter: blur(8px); /* Safari desteği için */
 }
+
+/* Modal arka planı */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Arka planı karartır */
+  backdrop-filter: blur(5px); /* Arka planı bulanıklaştırır */
+  z-index: 999; /* Modalın altında ama diğer içeriklerin üstünde */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}   
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -41,6 +57,44 @@
   overflow-y: auto;
 }
 
+/* Modal */
+.detail-modal {
+  margin-top: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 16px;
+  padding: 15px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Modalın üstte görünmesini sağlar */
+  animation: fadeInScale 0.3s ease-in-out forwards; /* Animasyonun düzgün çalışması için forwards eklendi */
+  opacity: 0; /* Başlangıçta görünmez */
+}
+
+/* Kategori ile açıklama arasındaki boşluğu azaltmak için düzenleme */
+.detail-modal .detail-category {
+  margin-bottom: 0.1rem; /* Boşluğu azaltmak için margin değeri küçültüldü */
+}
+
+/* Kategori ve açıklama arasındaki boşlukları azaltmak için düzenleme */
+.detail-modal .detail-category {
+  margin-bottom: 0.25rem; /* Daha sıkı bir boşluk için margin küçültüldü */
+}
+
+.detail-modal .detail-description {
+  margin-top: 0.25rem; /* Açıklama üst boşluğu azaltıldı */
+}
+
 @keyframes modalSlideIn {
   from {
     opacity: 0;
@@ -49,6 +103,18 @@
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
+  }
+}
+
+/* Modal animasyonu */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9); /* Başlangıç pozisyonu tam ortada */
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); /* Son pozisyon tam ortada */
   }
 }
 
@@ -77,6 +143,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.02em;
+  background-clip: text;
 }
 
 .modal-header .close-button {
@@ -94,10 +161,35 @@
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Modal kapatma düğmesi */
+.detail-modal .close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f2937;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
 .modal-header .close-button:hover {
   background-color: #f1f5f9;
   color: #e11d48;
   transform: rotate(90deg) scale(1.1);
+}
+
+.detail-modal .close-button:hover {
+  background-color: #e2e8f0;
+  color: #e11d48;
 }
 
 /* Form Grup */
@@ -384,6 +476,65 @@
   box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
 }
 
+/* Modal içeriği */
+.product-detail-info {
+  padding: 20px;
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Modal resim alanı */
+.product-detail-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main-image-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-main-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.image-thumbnails {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+  border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: #0284c7;
+}
+
 /* Form Butonları */
 .form-buttons {
   display: flex;
@@ -488,4 +639,4 @@
   .product-grid {
     grid-template-columns: 1fr; /* Mobil ekranlarda 1 sütun */
   }
-} 
+}

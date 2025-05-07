@@ -50,17 +50,19 @@ const ProductsPage = () => {
     filterProducts();
   }, []);
 
+  // Pop-up açıkken arka tarafı devre dışı bırakmak için body'ye overflow: hidden ekle
+  useEffect(() => {
+    if (showDetailModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
 
-
-
-
-
-
-
-
-
-
-
+    // Cleanup: Modal kapandığında overflow'u geri al
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [showDetailModal]);
 
   // Ürün Detay Modalını Aç
   const openDetailModal = (product) => {
@@ -305,4 +307,4 @@ const ProductsPage = () => {
   );
 };
 
-export default ProductsPage; 
+export default ProductsPage;
