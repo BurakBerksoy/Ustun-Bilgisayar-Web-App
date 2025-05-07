@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import axios from 'axios';
-import { API_BASE_URL, PRODUCT_CATEGORIES, CATEGORY_TRANSLATIONS } from '../constants';
+import { PRODUCT_CATEGORIES, CATEGORY_TRANSLATIONS } from '../constants';
 import '../styles/ProductsPage.css';
-import ProductModal from '../components/ProductModal';
-import { FaEdit, FaTrash, FaPlus, FaSearch, FaTags, FaPencilAlt, FaRegTrashAlt, FaTimes, FaImage } from 'react-icons/fa';
+
+import { FaSearch, FaTags, FaTimes, FaImage } from 'react-icons/fa';
 
 // Metni belirli bir uzunlukta kısaltmak için yardımcı fonksiyon
 const truncateText = (text, maxLength) => {
@@ -14,14 +13,25 @@ const truncateText = (text, maxLength) => {
 };
 
 const ProductsPage = () => {
-  // Ürün Listesi State'i
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  
-  // Modal State'leri
-  const [showModal, setShowModal] = useState(false);
-  const [currentProduct, setCurrentProduct] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
+  // Statik ürün listesi (geçici olarak sadece RAM ürünleri, diğer ürünler için fotoğraflar eklenince güncellenecek)
+  const staticProducts = [
+    {
+      id: 1,
+      name: 'Swissbit 2yGB PC2-5300U',
+      description: 'Masaüstü bilgisayarlar için 2GB DDR2 RAM, 667MHz, PC2-5300U. Tüm masaüstü sistemlerle uyumludur ve performans artışı sağlar.',
+      category: 'RAM',
+      img1: '/src/products_img/Swissbit_2GB_PC2-5300U-555.jpg',
+      img2: null,
+      img3: null, 
+      img4: null,
+      img5: null,
+      img6: null
+    },
+    // Diğer kategorilerin ürünleri fotoğraflar eklendikçe buraya eklenecek
+  ];
+
+  // Ürün Listesi State'i (statik veri kullanıyoruz)
+  const [filteredProducts, setFilteredProducts] = useState(staticProducts);
   
   // Ürün Detay Modalı State'i
   const [showDetailModal, setShowDetailModal] = useState(false);
@@ -31,148 +41,26 @@ const ProductsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   
-  // Loading ve Error State'leri
-  const [loading, setLoading] = useState(true);
+  // Loading State'i - her zaman false çünkü ürünler statik
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Ürünleri Fetch Et
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(`${API_BASE_URL}/api/products`);
-      setProducts(response.data);
-      setFilteredProducts(response.data);
-      setLoading(false);
-    } catch (err) {
-      console.error("Ürünler yüklenirken hata oluştu:", err);
-      setError("Ürünler yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.");
-      setLoading(false);
-    }
-  };
-
-  // Sayfa Yüklendiğinde Ürünleri Getir
+  // Sayfa yüklendiğinde filtre uygula
   useEffect(() => {
-    fetchProducts();
+    filterProducts();
   }, []);
 
-  // Ürün Ekleme İşlevi
-  const handleAddProduct = async (productData) => {
-    try {
-      setLoading(true);
-      await axios.post(`${API_BASE_URL}/api/products`, productData);
-      await fetchProducts(); // Yeni listeyi getir
-      setShowModal(false);
-      setLoading(false);
-    } catch (err) {
-      console.error("Ürün eklenirken hata oluştu:", err);
-      setError("Ürün eklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.");
-      setLoading(false);
-    }
-  };
 
-  // Ürün Düzenleme İşlevi
-  const handleEditProduct = async (productId, productData) => {
-    try {
-      setLoading(true);
-      // ProductId'nin doğru olduğundan emin olalım
-      if (!productId) {
-        console.error("Ürün ID'si bulunamadı");
-        setError("Ürün ID'si bulunamadı. Lütfen sayfayı yenileyip tekrar deneyin.");
-        setLoading(false);
-        return;
-      }
-      
-      console.log("Ürün güncelleniyor, ID:", productId, "Veri:", productData);
-      
-      // Eğer ürün ID'si mevcut değilse, API'ye gönderilen veride ID ekleyelim
-      if (!productData.id) {
-        productData.id = productId;
-      }
-      
-      await axios.put(`${API_BASE_URL}/api/products/${productId}`, productData);
-      await fetchProducts(); // Güncellenmiş listeyi getir
-      setShowModal(false);
-      setCurrentProduct(null);
-      setIsEditing(false);
-      setLoading(false);
-    } catch (err) {
-      console.error("Ürün güncellenirken hata oluştu:", err);
-      
-      // Daha açıklayıcı hata mesajı
-      let errorMessage = "Ürün güncellenirken bir hata oluştu.";
-      
-      if (err.response) {
-        if (err.response.status === 404) {
-          errorMessage += " Ürün bulunamadı. Sayfayı yenileyip tekrar deneyin.";
-        } else {
-          errorMessage += ` (Hata kodu: ${err.response.status})`;
-        }
-      }
-      
-      setError(errorMessage);
-      setLoading(false);
-    }
-  };
 
-  // Ürün Silme İşlevi
-  const handleDeleteProduct = async (productId) => {
-    if (window.confirm("Bu ürünü silmek istediğinizden emin misiniz?")) {
-      try {
-        setLoading(true);
-        
-        // ProductId'nin doğru olduğundan emin olalım
-        if (!productId) {
-          console.error("Ürün ID'si bulunamadı");
-          setError("Ürün ID'si bulunamadı. Lütfen sayfayı yenileyip tekrar deneyin.");
-          setLoading(false);
-          return;
-        }
-        
-        console.log("Ürün siliniyor, ID:", productId);
-        
-        await axios.delete(`${API_BASE_URL}/api/products/${productId}`);
-        await fetchProducts(); // Güncellenmiş listeyi getir
-        setLoading(false);
-      } catch (err) {
-        console.error("Ürün silinirken hata oluştu:", err);
-        
-        // Daha açıklayıcı hata mesajı
-        let errorMessage = "Ürün silinirken bir hata oluştu.";
-        
-        if (err.response) {
-          if (err.response.status === 404) {
-            errorMessage += " Ürün bulunamadı. Sayfayı yenileyip tekrar deneyin.";
-          } else {
-            errorMessage += ` (Hata kodu: ${err.response.status})`;
-          }
-        }
-        
-        setError(errorMessage);
-        setLoading(false);
-      }
-    }
-  };
 
-  // Ürün Ekleme Modalını Aç
-  const openAddModal = () => {
-    setCurrentProduct(null);
-    setIsEditing(false);
-    setShowModal(true);
-  };
 
-  // Ürün Düzenleme Modalını Aç
-  const openEditModal = (product) => {
-    setCurrentProduct(product);
-    setIsEditing(true);
-    setShowModal(true);
-  };
 
-  // Modalı Kapat
-  const closeModal = () => {
-    setShowModal(false);
-    setCurrentProduct(null);
-    setIsEditing(false);
-  };
+
+
+
+
+
+
 
   // Ürün Detay Modalını Aç
   const openDetailModal = (product) => {
@@ -189,10 +77,10 @@ const ProductsPage = () => {
   // Arama Filtresi
   useEffect(() => {
     filterProducts();
-  }, [searchTerm, selectedCategory, products]);
+  }, [searchTerm, selectedCategory]);
 
   const filterProducts = () => {
-    let result = [...products];
+    let result = [...staticProducts];
     
     // Arama terimini uygula
     if (searchTerm) {
@@ -242,24 +130,8 @@ const ProductsPage = () => {
           <div className="product-category">{CATEGORY_TRANSLATIONS[product.category] || product.category}</div>
         </div>
         <div className="product-actions">
-          <button 
-            className="edit-btn" 
-            onClick={(e) => {
-              e.stopPropagation();
-              openEditModal(product);
-            }}
-          >
-            <FaPencilAlt /> Düzenle
-          </button>
-          <button 
-            className="delete-btn" 
-            onClick={(e) => {
-              e.stopPropagation();
-              handleDeleteProduct(product.id);
-            }}
-          >
-            <FaRegTrashAlt /> Sil
-          </button>
+
+
         </div>
       </div>
     );
@@ -361,6 +233,7 @@ const ProductsPage = () => {
           name="description" 
           content="Bilgisayar tamiri ve teknoloji ürünleri. Kaliteli ürünler ve uygun fiyatlarla hizmetinizdeyiz." 
         />
+        <meta name="keywords" content="bilgisayar parçaları, bilgisayar donanım, RAM, SSD, mouse, disk, modem"/>
       </Helmet>
       
       <div className="products-content">
@@ -392,9 +265,7 @@ const ProductsPage = () => {
               </select>
             </div>
             
-            <button className="add-product-btn" onClick={openAddModal}>
-              <FaPlus /> Ürün Ekle
-            </button>
+
           </div>
           
           {/* Hata Mesajı */}
@@ -404,47 +275,24 @@ const ProductsPage = () => {
             </div>
           )}
           
-          {/* Yükleniyor İndikatörü */}
-          {loading ? (
-            <div className="loading">Yükleniyor...</div>
-          ) : (
-            <>
-              {/* Ürün Listesi */}
-              <div className="product-grid">
-                {loading ? (
-                  <div className="loading">Yükleniyor...</div>
-                ) : error ? (
-                  <div className="error-message">{error}</div>
-                ) : filteredProducts.length === 0 ? (
-                  <div className="no-products">
-                    {searchTerm || selectedCategory ? 
-                      'Aramanızla eşleşen ürün bulunamadı.' : 
-                      'Henüz ürün eklenmemiş. İlk ürünü eklemek için "Yeni Ürün Ekle" butonuna tıklayın.'}
-                  </div>
-                ) : (
-                  filteredProducts.map(product => (
-                    <ProductCard key={product.id} product={product} />
-                  ))
-                )}
+                  {/* Ürün Listesi */}
+          <div className="product-grid">
+            {filteredProducts.length === 0 ? (
+              <div className="no-products">
+                {searchTerm || selectedCategory ? 
+                  'Aramanızla eşleşen ürün bulunamadı.' : 
+                  'Henüz ürün eklenmemiş.'}
               </div>
-            </>
-          )}
+            ) : (
+              filteredProducts.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            )}
+          </div>
         </div>
       </div>
       
-      {/* Ürün Ekleme/Düzenleme Modalı */}
-      {showModal && (
-        <ProductModal
-          isOpen={showModal}
-          onClose={closeModal}
-          product={currentProduct}
-          isEditing={isEditing}
-          onSubmit={isEditing 
-            ? (data) => handleEditProduct(currentProduct.id, data)
-            : handleAddProduct
-          }
-        />
-      )}
+
       
       {/* Detay Modalı */}
       {showDetailModal && detailProduct && (
