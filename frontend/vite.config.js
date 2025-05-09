@@ -36,7 +36,7 @@ export default defineConfig({
   preview: {
     port: 5000
   },
-  base: './',
+  base: '/',
   // Vite SPA uygulamaları için özel ayarlar
   publicDir: 'public',
   // SPA yönlendirmesi için
