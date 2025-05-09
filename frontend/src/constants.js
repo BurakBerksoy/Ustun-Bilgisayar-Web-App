@@ -13,25 +13,17 @@ export const API_ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBZG1pbiIsImlhdC
 
 // Ürün Kategorileri
 export const PRODUCT_CATEGORIES = [
-  'SSD',
   'RAM',
-  'MOTHERBOARD',
+  'SSD',
   'CPU',
-  'GPU',
+  'MOTHERBOARD',
+  'HARD_DISK',
   'POWER_SUPPLY',
-  'COOLING',
-  'CASE',
   'MOUSE',
   'KEYBOARD',
-  'DISK',
-  'HARD_DISK',
-  'MODEM',
-  'COMPUTER',
-  'TABLET',
-  'PHONE',
   'MONITOR',
-  'PERIPHERAL',
-  'OTHER'
+  'COMPUTER',
+  'EARPHONE'
 ];
 
 // Kategori isimlerini Türkçe olarak görüntüle
@@ -53,7 +45,7 @@ export const CATEGORY_TRANSLATIONS = {
   'TABLET': 'Tablet',
   'PHONE': 'Telefon',
   'MONITOR': 'Monitör',
-  'PERIPHERAL': 'Çevre Birimleri',
+  'EARPHONE': 'Kulaklık',
   'OTHER': 'Diğer'
 };
 
