@@ -9,10 +9,10 @@ import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import '../styles/HomePage.css';
 
 // Resim importları
-import img1 from '../images/2-d9de38.png';
-import img2 from '../images/asus-tuf-gaming-kasa.jpg';
-import img3 from '../images/kirmizi-mini-itx-kasa-996-d76bd4.jpg';
-import img4 from '../images/phanteks-enthoo-pro2-server-kapali-panel-bilgisayar-kasa-coraxalpha-01_13.07.2023_0d7b7c4.jpg';
+import img1 from '../images/1.jpg';
+import img2 from '../images/2.jpg';
+import img3 from '../images/3.jpg';
+import img4 from '../images/4.jpg';
 
 const HomePage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -79,7 +79,7 @@ const HomePage = () => {
         <div className="gallery-modal-backdrop" onClick={() => setShowGalleryModal(false)}></div>
         <div className="gallery-modal-content">
           <button className="gallery-close-btn" onClick={() => setShowGalleryModal(false)}>
-            <FaTimes />
+            <span style={{ fontSize: '24px', color: 'white', fontWeight: 'bold', lineHeight: '1' }}>✕</span>
           </button>
           
           <div className="gallery-image-container">

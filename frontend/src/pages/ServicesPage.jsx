@@ -304,7 +304,25 @@ const ServicesPage = () => {
               Elektronik cihaz tamiri veya yazılım projeniz için ücretsiz danışmanlık hizmeti veriyoruz.
               Sorunlarınızı çözmek ve fikirlerinizi hayata geçirmek için hemen iletişime geçin!
             </p>
-            <button className="cta-button">Bize Ulaşın</button>
+            <button 
+              className="cta-button" 
+              onClick={() => {
+                // Mobil cihazlarda çalışacak telefon araması fonksiyonu
+                const phoneNumber = "05326109511";
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+                if (isMobile) {
+                  // Mobil cihazlarda telefon araması yap
+                  window.location.href = `tel:${phoneNumber}`;
+                } else {
+                  // Telefon özelliği olmayan cihazlarda WhatsApp web'e yönlendir
+                  const whatsappNumber = phoneNumber.replace(/^0/, '90'); // Başındaki 0'ı 90 ile değiştir
+                  window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}`, '_blank');
+                }
+              }}
+            >
+              Bize Ulaşın
+            </button>
           </div>
         </div>
       </div>

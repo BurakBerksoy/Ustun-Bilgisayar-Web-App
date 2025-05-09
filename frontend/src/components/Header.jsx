@@ -35,7 +35,7 @@ const Header = () => {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="logo">
-          <span className="logo-text">Bilgisayar Tamiri</span>
+          <span className="logo-text">Üstün Bilgisayar</span>
         </div>
 
         <button 
