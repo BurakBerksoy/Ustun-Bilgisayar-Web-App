@@ -1,14 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FaLaptop, FaTools, FaServer, FaDatabase, FaShieldAlt, FaUserCheck, 
-         FaClock, FaHeadset, FaStar, FaCheck, FaDesktop, FaMicrochip, 
-         FaNetworkWired, FaLightbulb, FaCogs, FaBrain } from 'react-icons/fa';
-import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
+import { createPortal } from 'react-dom';
 import '../styles/HomePage.css';
+import { 
+  FaArrowLeft, 
+  FaArrowRight,
+  FaUserCheck,
+  FaShieldAlt,
+  FaClock,
+  FaLightbulb,
+  FaCogs,
+  FaLaptop,
+  FaTools,
+  FaServer,
+  FaDatabase,
+  FaHeadset,
+  FaStar,
+  FaCheck,
+  FaDesktop,
+  FaMicrochip,
+  FaNetworkWired,
+  FaBrain
+} from 'react-icons/fa';
 
-// Resim importları
+// İçe aktar
 import img1 from '../images/1.jpg';
 import img2 from '../images/2.jpg';
 import img3 from '../images/3.jpg';
@@ -18,13 +33,25 @@ const HomePage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
-  const [showGalleryModal, setShowGalleryModal] = useState(false);
+  
+  // Resim bilgileri
+  const galleryImages = [
+    { src: img1, alt: "Bilgisayar Parçaları" },
+    { src: img2, alt: "Asus TUF Gaming Kasa" },
+    { src: img3, alt: "Kırmızı Mini ITX Kasa" },
+    { src: img4, alt: "Phanteks Enthoo Pro2 Server Kasa" }
+  ];
 
   useEffect(() => {
     // Otomatik testimonial değiştirme
     const testimonialInterval = setInterval(() => {
       setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
     }, 4000);
+    
+    // Otomatik galeri resim değiştirme - 2 saniye aralıklarla
+    const galleryInterval = setInterval(() => {
+      setCurrentImage(prev => (prev + 1) % galleryImages.length);
+    }, 2000);
 
     // Ekran kaydırma animasyonu için IntersectionObserver
     const observer = new IntersectionObserver((entries) => {
@@ -64,67 +91,40 @@ const HomePage = () => {
     
     return () => {
       clearInterval(testimonialInterval);
+      clearInterval(galleryInterval);
       // Observer'ı temizle
       observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  // Popup Modal
-  const renderGalleryModal = () => {
-    if (!showGalleryModal) return null;
-    
-    return createPortal(
-      <div className="gallery-modal">
-        <div className="gallery-modal-backdrop" onClick={() => setShowGalleryModal(false)}></div>
-        <div className="gallery-modal-content">
-          <button className="gallery-close-btn" onClick={() => setShowGalleryModal(false)}>
-            <span style={{ fontSize: '24px', color: 'white', fontWeight: 'bold', lineHeight: '1' }}>✕</span>
-          </button>
-          
-          <div className="gallery-image-container">
-            <div className="gallery-images" style={{ transform: `translateX(-${currentImage * 100}%)` }}>
-              <div className="gallery-image">
-                <img src={img1} alt="Bilgisayar Parçaları" />
-              </div>
-              <div className="gallery-image">
-                <img src={img2} alt="Asus TUF Gaming Kasa" />
-              </div>
-              <div className="gallery-image">
-                <img src={img3} alt="Kırmızı Mini ITX Kasa" />
-              </div>
-              <div className="gallery-image">
-                <img src={img4} alt="Phanteks Enthoo Pro2 Server Kasa" />
-              </div>
-            </div>
-          </div>
-          
-          <div className="gallery-controls">
-            <button 
-              className="gallery-nav-btn prev" 
-              onClick={() => setCurrentImage(prev => (prev === 0 ? 3 : prev - 1))}
+  // Galeri slider'ı oluşturma fonksiyonu
+  const renderGallerySlider = () => {
+    return (
+      <div className="gallery-slider">
+        <div className="gallery-slider-container">
+          {galleryImages.map((image, index) => (
+            <div 
+              key={index} 
+              className={`slider-image ${currentImage === index ? 'active' : ''}`}
             >
-              <FaArrowLeft />
-            </button>
-            <div className="gallery-indicators">
-              {[0, 1, 2, 3].map(index => (
+              <img src={image.src} alt={image.alt} />
+            </div>
+          ))}
+          
+          <div className="slider-controls">
+            <div className="slider-indicators">
+              {galleryImages.map((_, index) => (
                 <span 
                   key={index} 
-                  className={`gallery-indicator ${currentImage === index ? 'active' : ''}`}
+                  className={`slider-indicator ${currentImage === index ? 'active' : ''}`}
                   onClick={() => setCurrentImage(index)}
                 />
               ))}
             </div>
-            <button 
-              className="gallery-nav-btn next" 
-              onClick={() => setCurrentImage(prev => (prev === 3 ? 0 : prev + 1))}
-            >
-              <FaArrowRight />
-            </button>
           </div>
         </div>
-      </div>,
-      document.body
+      </div>
     );
   };
   
@@ -138,8 +138,7 @@ const HomePage = () => {
         />
       </Helmet>
       
-      {/* Popup modalini renderGalleryModal fonksiyonu ile render et */}
-      {renderGalleryModal()}
+      {/* Popup modalı kaldırıldı */}
 
       {/* Hero Section */}
       <section className="hero-section animate-section visible" id="hero">
@@ -163,15 +162,8 @@ const HomePage = () => {
               </div>
             </div>
             
-            <div className="hero-image-preview" onClick={() => setShowGalleryModal(true)}>
-              <div className="image-circle">
-                <img src={img2} alt="Bilgisayar Kasaları" />
-              </div>
-              <div className="preview-overlay">
-                <div className="view-gallery-text">
-                  Resimleri görmek için tıklayın
-                </div>
-              </div>
+            <div className="hero-image-slider">
+              {renderGallerySlider()}
             </div>
           </div>
         </div>
@@ -309,7 +301,7 @@ const HomePage = () => {
             <h2>Hızlı ve Güvenilir Bilgisayar Tamiri</h2>
             <p>Bilgisayarınızla ilgili tüm sorunlarda yanınızdayız. Hemen bizi arayın, sorununuzu çözelim!</p>
             <div className="cta-buttons">
-              <a href="tel:+902121234567" className="btn btn-light">Bizi Arayın</a>
+              <a href="tel:+905326109511" className="btn btn-light">Bizi Arayın</a>
               <a href="https://api.whatsapp.com/send?phone=905326109511" className="btn btn-outline-light">WhatsApp</a>
             </div>
           </div>
