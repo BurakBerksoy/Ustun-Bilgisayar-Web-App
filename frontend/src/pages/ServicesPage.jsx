@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FaLaptopCode, FaMobileAlt, FaDesktop, FaBrain, FaDatabase, FaShieldAlt, FaLaptop, FaMobile, FaTabletAlt, FaHdd, FaMicrochip, FaFan } from 'react-icons/fa';
+import { 
+  FaLaptopCode, FaMobileAlt, FaDesktop, FaBrain, FaDatabase, 
+  FaShieldAlt, FaLaptop, FaMobile, FaTabletAlt, FaHdd, 
+  FaMicrochip, FaFan, FaNetworkWired, FaServer, FaWrench, 
+  FaVideo, FaTools, FaCloudUploadAlt, FaGlobe, FaShoppingCart
+} from 'react-icons/fa';
 import '../styles/ServicesPage.css';
 
 const ServicesPage = () => {
@@ -12,6 +17,128 @@ const ServicesPage = () => {
   // Aktif servis kategorisini takip et
   const [activeCategory, setActiveCategory] = useState('repair');
 
+  // Kurumsal Hizmetler
+  const corporateServices = [
+    {
+      id: 1,
+      title: 'Donanım Arızaları',
+      description: 'Bilgisayar ve sunucu donanım sorunlarının tanımlanması ve hızlı çözümüyle işletmenizin kesintisiz çalışmasını sağlarız.',
+      icon: <FaWrench />,
+      features: [
+        'Sunucu donanım sorunları tespiti',
+        'Hızlı yerinde müdahale',
+        'Kritik parça değişimi',
+        'Proaktif arıza tespiti',
+        'Yüksek öncelikli teknik destek'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Ağ Yapılandırma',
+      description: 'Kurumsal ağ altyapınızı optimize eder, güvenli ve hızlı bir ağ yapısı kurarak iş süreçlerinizi hızlandırırız.',
+      icon: <FaNetworkWired />,
+      features: [
+        'Router ve switch konfigurasyonu',
+        'VLAN ve subnet yapılandırması',
+        'Firewall ve güvenlik ayarları',
+        'Kablosuz ağ optimizasyonu',
+        'Ağ trafiği yönetimi'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Yazılım Sorunları',
+      description: 'İşletim sistemi ve uygulama yazılımlarında karşılaşılan sorunları çözerek sistemlerinizin sorunsuz çalışmasını sağlarız.',
+      icon: <FaLaptopCode />,
+      features: [
+        'İşletim sistemi hata giderme',
+        'Uygulama çakışma sorunları çözümü',
+        'Lisans yönetimi ve güncelleme',
+        'Antivirüs ve güvenlik yazılımları',
+        'Veritabanı hata giderme'
+      ]
+    },
+    {
+      id: 4,
+      title: 'Performans Yükseltme',
+      description: 'Mevcut donanımınızı analiz ederek optimum performans için gerekli yükseltme ve iyileştirmeleri gerçekleştiririz.',
+      icon: <FaDesktop />,
+      features: [
+        'Sistem performans analizi',
+        'Donanım yükseltme planları',
+        'Bellek ve CPU optimizasyonu',
+        'Depolama çözümleri güncelleme',
+        'Güç verimliliği iyileştirme'
+      ]
+    },
+    {
+      id: 5,
+      title: 'Veri Kurtarma',
+      description: 'Disk arızaları ve veri kayıplarında profesyonel ekipmanlarla kritik şirket verilerinizi kurtarırız.',
+      icon: <FaDatabase />,
+      features: [
+        'Fiziksel disk hasarı kurtarma',
+        'Dosya sistemi onarımı',
+        'Silinen dosya kurtarma',
+        'RAID sistem veri kurtarma',
+        'Adli bilişim destekli kurtarma'
+      ]
+    },
+    {
+      id: 6,
+      title: 'Güvenlik Kamerası Kurma',
+      description: 'İşletmenizin güvenliğini sağlamak için modern kamera sistemleri kurulumu ve yapılandırması gerçekleştiririz.',
+      icon: <FaVideo />,
+      features: [
+        'IP kamera sistemi kurulumu',
+        'NVR/DVR yapılandırması',
+        'Uzaktan izleme çözümleri',
+        'Görüntü saklama ve arşivleme',
+        'Hareket algılama sistemleri'
+      ]
+    },
+    {
+      id: 7,
+      title: 'Sistem Bakımı',
+      description: 'Düzenli bakım ve kontrol hizmetleriyle bilgisayar sistemlerinizin uzun ömürlü ve sorunsuz çalışmasını sağlarız.',
+      icon: <FaTools />,
+      features: [
+        'Periyodik donanım bakımı',
+        'Yazılım güncelleme ve yamalar',
+        'Sistem temizliği ve optimizasyon',
+        'Arıza öngörü testleri',
+        'Bakım raporlaması ve planlama'
+      ]
+    },
+    {
+      id: 8,
+      title: 'Bulut Çözümleri',
+      description: 'İşletmeniz için ölçeklenebilir, güvenli ve ekonomik bulut depolama ve yedekleme çözümleri sunarız.',
+      icon: <FaCloudUploadAlt />,
+      features: [
+        'Hibrit bulut mimarisi kurulumu',
+        'Veri yedekleme ve felaket kurtarma',
+        'Bulut sunucu yapılandırması',
+        'Bulut depolama optimizasyonu',
+        'Güvenli veri senkronizasyonu'
+      ]
+    },
+    {
+      id: 9,
+      title: 'Uzaktan Destek',
+      description: 'Zaman kaybetmeden uzaktan bağlantı ile teknik destek sağlayarak işletmenizin sorunlarını hızlıca çözeriz.',
+      icon: <FaServer />,
+      features: [
+        'Güvenli uzak bağlantı desteği',
+        '7/24 acil durum müdahalesi',
+        'Kullanıcı sorunları çözümü',
+        'Uzaktan sistem izleme',
+        'Proaktif sorun tespiti'
+      ]
+    }
+  ];
+
+  // Tamir Hizmetleri
   const repairServices = [
     {
       id: 1,
@@ -80,15 +207,15 @@ const ServicesPage = () => {
     },
     {
       id: 6,
-      title: 'Mouse Tamiri',
-      description: 'Her marka mouse için tamir ve bakım hizmetleri sunuyoruz. Tıklama sorunları, sensor arızaları ve kablo problemlerini profesyonel olarak çözüyoruz.',
-      icon: <FaMobileAlt />,
+      title: 'Bilgisayar Yedek Parçaları',
+      description: 'Bilgisayarınız için ihtiyaç duyduğunuz tüm donanım parçalarını temin ediyoruz. Orijinal ve uyumlu parçalar ile bilgisayarınızın performansını en üst seviyeye çıkarabilirsiniz.',
+      icon: <FaMicrochip />,
       features: [
-        'Switch değişimi',
-        'Sensor tamiri',
-        'Kablo değişimi',
-        'Scroll tekerlek tamiri',
-        'Performans iyileştirme'
+        'Anakart, işlemci ve ekran kartı',
+        'RAM, SSD ve HDD ürünleri',
+        'Güç kaynağı ve soğutma sistemleri',
+        'Klavye, mouse ve diğer çevre birimleri',
+        'Orijinal yedek parça garantisi'
       ]
     },
     {
@@ -107,108 +234,148 @@ const ServicesPage = () => {
     {
       id: 8,
       title: 'Hoparlör ve Mikrofon Tamiri',
-      description: 'Bilgisayar hoparlörleri, kulaklıklar ve mikrofonlarınız için tamir hizmetleri sunuyoruz. Ses kalitesi sorunları, bağlantı problemleri ve fiziksel hasarları gideriyoruz.',
-      icon: <FaFan />,
+      description: 'Her türlü hoparlör, kulaklık ve mikrofon sistemlerinin tamir işlemlerini gerçekleştiriyoruz. Ses kesintisi, cızırtı ve bağlantı sorunları için çözümler üretiyoruz.',
+      icon: <FaHdd />,
       features: [
-        'Hoparlör değişimi',
-        'Kablo tamiri',
-        'Mikrofon membranı değişimi',
-        'Kulaklık tamiri',
-        'Ses kalitesi optimizasyonu'
+        'Hoparlör diyafram değişimi',
+        'Hoparlör kablo tamiri',
+        'Mikrofon hassasiyet ayarı',
+        'Kulaklık bağlantı tamiri',
+        'Ses sistemi optimizasyonu'
       ]
     },
     {
       id: 9,
-      title: 'Network Donanımları Tamiri',
-      description: 'Router, modem, switch ve diğer ağ cihazlarınız için profesyonel tamir hizmetleri sunuyoruz. Bağlantı sorunları, yapılandırma ve donanım arızalarını gideriyoruz.',
-      icon: <FaDatabase />,
+      title: 'Ağ Cihazları Tamiri',
+      description: 'Router, modem, switch ve diğer ağ cihazlarının tamir ve bakımı için profesyonel hizmet sunuyoruz. Bağlantı sorunları, donanım arızaları ve firmware sorunlarını çözüyoruz.',
+      icon: <FaNetworkWired />,
       features: [
-        'Router/Modem tamiri',
-        'Anten değişimi',
-        'Switch port tamiri',
-        'Firmware güncelleme',
+        'Router ve modem tamiri',
+        'Ağ cihazı firmware güncelleme',
+        'Bağlantı sorunları tespiti',
+        'Anakart ve güç devresi tamiri',
         'Ağ performans optimizasyonu'
       ]
     }
   ];
 
+  // Extra Hizmetler
   const extraServices = [
     {
       id: 1,
-      title: 'Web Sitesi Geliştirme',
-      description: 'Modern ve responsive web siteleri geliştiriyoruz. React, Angular ve Vue.js gibi popüler frontend teknolojilerini kullanarak müşterilerimize özel çözümler sunuyoruz.',
-      icon: <FaLaptopCode />,
+      title: 'Web Tasarım',
+      description: 'Modern ve responsive web siteleri tasarlıyoruz. SEO uyumlu, hızlı ve kullanıcı dostu web sayfaları ile işletmenizin online görünürlüğünü artırıyoruz.',
+      icon: <FaGlobe />,
       features: [
         'Responsive tasarım',
-        'SEO uyumlu kodlama',
-        'Yüksek performanslı web siteleri',
+        'SEO optimizasyonu',
+        'WordPress geliştirme',
         'E-ticaret çözümleri',
-        'İçerik yönetim sistemleri'
+        'Web bakım ve güncelleme'
       ]
     },
     {
       id: 2,
       title: 'Mobil Uygulama Geliştirme',
-      description: 'Android ve iOS platformları için native ve cross-platform mobil uygulamalar geliştiriyoruz. React Native ve Flutter kullanarak her iki platform için tek kod tabanında çalışan uygulamalar sunuyoruz.',
-      icon: <FaMobileAlt />,
+      description: 'İşletmeniz için iOS ve Android platformlarında çalışan özel mobil uygulamalar geliştiriyoruz. Kullanıcı dostu arayüzler ve hızlı uygulamalar tasarlıyoruz.',
+      icon: <FaMobile />,
       features: [
-        'Native iOS ve Android uygulamalar',
-        'Cross-platform çözümler',
-        'Kullanıcı dostu arayüzler',
-        'API entegrasyonları',
-        'Push bildirim sistemleri'
+        'iOS uygulama geliştirme',
+        'Android uygulama geliştirme',
+        'Uygulama bakımı ve güncelleme',
+        'API entegrasyonu',
+        'Uygulama mağaza yönetimi'
       ]
     },
     {
       id: 3,
-      title: 'Masaüstü Uygulama Geliştirme',
-      description: 'Windows, macOS ve Linux platformları için profesyonel masaüstü uygulamaları geliştiriyoruz. Electron, JavaFX ve .NET teknolojileri ile şirketinize özel yazılım çözümleri sunuyoruz.',
-      icon: <FaDesktop />,
+      title: 'Sosyal Medya Yönetimi',
+      description: 'İşletmenizin sosyal medya hesaplarının profesyonel yönetimi için hizmet sunuyoruz. İçerik üretimi, etkileşim artırma ve reklam kampanyaları düzenliyoruz.',
+      icon: <FaTabletAlt />,
       features: [
-        'Çapraz platform masaüstü uygulamaları',
-        'Özel işletme yazılımları',
-        'Veritabanı entegrasyonları',
-        'Yüksek performanslı Native uygulamalar',
-        'Modern kullanıcı arayüzleri'
+        'İçerik üretimi ve planlama',
+        'Sosyal medya reklam yönetimi',
+        'Topluluk yönetimi',
+        'Analiz ve raporlama',
+        'Rakip analizi'
       ]
     },
     {
       id: 4,
-      title: 'Yapay Zeka Çözümleri',
-      description: 'Yapay zeka ve makine öğrenmesi kullanarak iş süreçlerinizi otomatikleştiren ve veri analizinizi güçlendiren çözümler geliştiriyoruz. İşletmenizi bir sonraki seviyeye taşıyacak akıllı yazılım sistemleri sunuyoruz.',
+      title: 'SEO Danışmanlığı',
+      description: 'Web sitenizin arama motorlarında üst sıralarda yer alması için profesyonel SEO danışmanlığı sunuyoruz. Organik trafiğinizi ve dönüşüm oranlarınızı artırıyoruz.',
       icon: <FaBrain />,
       features: [
-        'Doğal dil işleme sistemleri',
-        'Veri analizi ve tahmin modelleri',
-        'Görüntü tanıma ve işleme',
-        'Chatbot ve sanal asistanlar',
-        'İş zekası çözümleri'
+        'Anahtar kelime analizi',
+        'On-page SEO optimizasyonu',
+        'Off-page SEO stratejileri',
+        'Teknik SEO iyileştirmeleri',
+        'Lokal SEO çalışmaları'
       ]
     },
     {
       id: 5,
-      title: 'Veritabanı Yönetimi ve Optimizasyon',
-      description: 'SQL ve NoSQL veritabanları için tasarım, kurulum, bakım ve optimizasyon hizmetleri sunuyoruz. Veritabanı performansını artırmak için özel çözümler geliştiriyoruz.',
+      title: 'Veri Yedekleme ve Kurtarma',
+      description: 'Önemli verilerinizin güvenli bir şekilde yedeklenmesi ve gerektiğinde kurtarılması için profesyonel çözümler sunuyoruz. Veri kaybı riskini minimuma indiriyoruz.',
       icon: <FaDatabase />,
       features: [
-        'Veritabanı tasarımı ve kurulumu',
-        'Performans optimizasyonu',
-        'Veri göç işlemleri',
-        'Yedekleme ve kurtarma çözümleri',
-        'Büyük veri yönetimi'
+        'Otomatik yedekleme sistemleri',
+        'Bulut tabanlı yedekleme',
+        'Felaket kurtarma planlaması',
+        'Veri kurtarma hizmetleri',
+        'Yedekleme stratejisi danışmanlığı'
       ]
     },
     {
       id: 6,
       title: 'Siber Güvenlik Çözümleri',
-      description: 'Uygulamalarınız ve sistemleriniz için güvenlik değerlendirmesi, penetrasyon testleri ve güvenlik çözümleri sunuyoruz. Güvenlik açıklarını belirleyip, çözüm önerileri sunuyoruz.',
+      description: 'İşletmenizin dijital varlıklarını korumak için kapsamlı siber güvenlik çözümleri sunuyoruz. Güvenlik açıklarını tespit ediyor ve koruma sağlıyoruz.',
       icon: <FaShieldAlt />,
       features: [
+        'Güvenlik duvarı yapılandırması',
+        'Penetrasyon testi',
         'Güvenlik açığı taraması',
-        'Penetrasyon testleri',
-        'Güvenlik duvarı konfigürasyonu',
-        'Güvenlik politikaları oluşturma',
-        'Güvenlik eğitimleri'
+        'Çalışan güvenlik eğitimi',
+        'Güvenlik politikaları oluşturma'
+      ]
+    },
+    {
+      id: 7,
+      title: 'Ağ Altyapısı Kurulumu',
+      description: 'İşletmeniz için güvenli, hızlı ve verimli ağ altyapısı kuruyoruz. Kablolu ve kablosuz ağ çözümleriyle kesintisiz iletişim sağlıyoruz.',
+      icon: <FaNetworkWired />,
+      features: [
+        'Kablolu ve kablosuz ağ kurulumu',
+        'Ağ cihazları konfigürasyonu',
+        'VPN çözümleri',
+        'Ağ güvenliği yapılandırması',
+        'Ağ performans optimizasyonu'
+      ]
+    },
+    {
+      id: 8,
+      title: 'Donanım Danışmanlığı',
+      description: 'İşletmenizin ihtiyaçlarına uygun donanım seçimi için profesyonel danışmanlık hizmeti sunuyoruz. Optimum performans ve maliyet dengesi sağlıyoruz.',
+      icon: <FaFan />,
+      features: [
+        'Donanım ihtiyaç analizi',
+        'Bütçe optimizasyonu',
+        'Donanım karşılaştırma',
+        'Kullanım ömrü tahmini',
+        'Performans/maliyet analizi'
+      ]
+    },
+    {
+      id: 9,
+      title: 'E-Ticaret Çözümleri',
+      description: 'İşletmeniz için özel ve kullanışlı e-ticaret platformları kuruyoruz. Ödeme sistemleri, envanter yönetimi ve müşteri deneyimi optimize ediyoruz.',
+      icon: <FaShoppingCart />,
+      features: [
+        'E-ticaret sitesi kurulumu',
+        'Ödeme sistemi entegrasyonu',
+        'Stok ve envanter yönetimi',
+        'Müşteri deneyimi optimizasyonu',
+        'Mobil uyumlu tasarım'
       ]
     }
   ];
@@ -216,7 +383,7 @@ const ServicesPage = () => {
   return (
     <div className="services-page">
       <Helmet>
-        <title>Hizmetlerimiz | Bilgisayar Tamir</title>
+        <title>Hizmetlerimiz | Üstün Bilgisayar</title>
         <meta 
           name="description" 
           content="Bilgisayar tamiri, yazılım geliştirme ve teknoloji çözümleri hakkında bilgi alın." 
@@ -237,6 +404,12 @@ const ServicesPage = () => {
               onClick={() => setActiveCategory('extra')}
             >
               Extra Hizmetlerimiz
+            </button>
+            <button 
+              className={`tab-button ${activeCategory === 'corporate' ? 'active' : ''}`} 
+              onClick={() => setActiveCategory('corporate')}
+            >
+              Kurumsal Hizmetlerimiz
             </button>
           </div>
 
@@ -297,6 +470,35 @@ const ServicesPage = () => {
               </div>
             </>
           )}
+
+          {activeCategory === 'corporate' && (
+            <>
+              <div className="services-intro">
+                <h2>Kurumsal Hizmetlerimiz</h2>
+                <p>
+                  Üstün Bilgisayar olarak işletmeler için özel olarak tasarlanmış kapsamlı BT çözümleri sunuyoruz.
+                  Profesyonel ekibimiz ve yılların deneyimiyle kurumsal müşterilerimizin ihtiyaçlarını hızlı ve güvenilir şekilde karşılıyoruz.
+                </p>
+              </div>
+              
+              <div className="services-grid">
+                {corporateServices.map(service => (
+                  <div key={service.id} className="service-card">
+                    <div className="service-icon">
+                      {service.icon}
+                    </div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <ul className="service-features">
+                      {service.features.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
           
           <div className="services-cta">
             <h2>Projeniz için Bize Ulaşın</h2>
@@ -330,4 +532,4 @@ const ServicesPage = () => {
   );
 };
 
-export default ServicesPage; 
+export default ServicesPage;

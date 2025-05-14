@@ -71,10 +71,26 @@
 .about-page {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--gray-dark);
-  background-color: #fff;
+  background: linear-gradient(135deg, #e0edff 0%, #c7dcff 50%, #b4d0ff 100%);
   line-height: 1.5;
   overflow-x: hidden;
   width: 100%;
+  position: relative;
+}
+
+.about-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 30%, rgba(5, 150, 105, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(59, 130, 246, 0.18) 0%, transparent 50%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .container {
@@ -104,7 +120,12 @@
   padding: var(--spacing-2xl) 0;
   position: relative;
   overflow: hidden;
-  background: var(--light-color);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(59, 130, 246, 0.25) 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
+  margin: var(--spacing-lg) 0;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(96, 165, 250, 0.3);
 }
 
 .about-hero::before {
@@ -230,12 +251,16 @@
   border-radius: 2px;
 }
 
-/* Kuruluş Hikayesi Bölümü */
+/* Tarihçe Bölümü */
 .history-section {
   padding: var(--spacing-3xl) 0;
-  background-color: white;
+  background: linear-gradient(135deg, #dde9ff 0%, #bbd2ff 100%);
   position: relative;
-  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  margin: var(--spacing-xl) 0;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(96, 165, 250, 0.4);
 }
 
 .history-section::before {
@@ -296,12 +321,15 @@
   margin-bottom: 0;
 }
 
-/* Kilometre Taşları Bölümü */
+/* Dönüm Noktaları Bölümü */
 .milestones-section {
   padding: var(--spacing-3xl) 0;
-  background-color: var(--light-color);
   position: relative;
-  overflow: hidden;
+  background: linear-gradient(135deg, #cde2ff 0%, #9ec5ff 100%);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+  border-radius: var(--border-radius-lg);
+  margin: var(--spacing-xl) 0;
+  border: 1px solid rgba(96, 165, 250, 0.4);
 }
 
 .milestones-section::before {
@@ -383,9 +411,13 @@
 /* Ekip Bölümü */
 .team-section {
   padding: var(--spacing-3xl) 0;
-  background-color: white;
+  background: linear-gradient(135deg, #b4cbff 0%, #96bdff 100%);
   position: relative;
   overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  margin: var(--spacing-xl) 0;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(96, 165, 250, 0.5);
 }
 
 .team-section::after {
@@ -515,9 +547,12 @@
 /* Değerlerimiz Bölümü */
 .values-section {
   padding: var(--spacing-3xl) 0;
-  background-color: var(--light-color);
+  background: linear-gradient(135deg, #a4c7ff 0%, #7eb2ff 100%);
   position: relative;
-  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  margin: var(--spacing-xl) 0;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(96, 165, 250, 0.5);
 }
 
 .values-section::before {
@@ -612,13 +647,216 @@
   color: var(--gray-color);
 }
 
+/* Kurumsal Hizmetlerimiz Bölümü */
+.corporate-services-section {
+  padding: var(--spacing-3xl) 0;
+  background: linear-gradient(135deg, #8ab3ff 0%, #5d9cff 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  margin: var(--spacing-xl) 0;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+  border: 1px solid rgba(96, 165, 250, 0.6);
+}
+
+.corporate-services-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 75% 25%, rgba(37, 99, 235, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 25% 75%, rgba(5, 150, 105, 0.04) 0%, transparent 40%);
+  z-index: 1;
+}
+
+.corporate-services-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.service-card {
+  background: white;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow);
+  transition: var(--transition-normal);
+  border: 1px solid var(--gray-light);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition-normal);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.05);
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+  transition: var(--transition-normal);
+}
+
+.service-card:hover .service-icon {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-dark);
+  transform: scale(1.1);
+}
+
+.service-card h3 {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+  color: var(--dark-color);
+}
+
+.service-card p {
+  text-align: center;
+  font-size: var(--font-md);
+  line-height: 1.7;
+  color: var(--gray-color);
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 992px) {
+  :root {
+    --font-4xl: 2.5rem;
+    --font-3xl: 2rem;
+    --font-2xl: 1.6rem;
+    --spacing-3xl: 5rem;
+  }
+
+  .about-hero .container {
+    flex-direction: column;
+  }
+
+  .about-hero-content, .about-hero-image {
+    max-width: 100%;
+  }
+
+  .history-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .history-logo {
+    margin: 0 auto;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-4xl: 2.2rem;
+    --font-3xl: 1.8rem;
+    --font-2xl: 1.5rem;
+    --font-xl: 1.3rem;
+    --spacing-3xl: 4rem;
+    --spacing-2xl: 3rem;
+  }
+
+  .about-hero {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .about-hero-content h1 {
+    font-size: var(--font-3xl);
+  }
+
+  .about-subtitle {
+    font-size: var(--font-lg);
+  }
+
+  .about-description p {
+    font-size: var(--font-base);
+  }
+
+  .section-title {
+    font-size: var(--font-2xl);
+  }
+
+  .history-text p, .milestone-content p, .member-info p, .value-card p {
+    font-size: var(--font-base);
+  }
+
+  .milestone-year {
+    font-size: var(--font-xl);
+  }
+
+  .milestone-content h3 {
+    font-size: var(--font-lg);
+  }
+
+  .member-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .team-member {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 576px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* CTA Bölümü */
 .about-cta-section {
   padding: var(--spacing-3xl) 0;
-  background: var(--gradient-blue);
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
   position: relative;
   overflow: hidden;
   color: white;
+  margin-top: var(--spacing-3xl);
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  box-shadow: 0 -10px 30px rgba(37, 99, 235, 0.35);
+  border-top: 3px solid rgba(96, 165, 250, 0.5);
+  border-left: 3px solid rgba(96, 165, 250, 0.5);
+  border-right: 3px solid rgba(96, 165, 250, 0.5);
 }
 
 .about-cta-section::before {

@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import '../styles/AboutPage.css';
 import { FaUsers, FaLaptop, FaHistory, FaBuilding, FaNetworkWired, FaGlobe, 
-         FaCheckCircle, FaHandshake, FaLightbulb, FaHeadset } from 'react-icons/fa';
+         FaCheckCircle, FaHandshake, FaLightbulb, FaHeadset, FaServer, 
+         FaWrench, FaDatabase, FaDesktop, FaShieldAlt, FaVideo, 
+         FaCloudUploadAlt, FaTools, FaLaptopCode } from 'react-icons/fa';
 
 const AboutPage = () => {
   useEffect(() => {
