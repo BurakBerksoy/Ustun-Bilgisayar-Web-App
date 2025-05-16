@@ -1,0 +1,139 @@
+/* Ürünler Sayfası - Mobil Uyumluluk Düzeltmeleri */
+@media screen and (max-width: 768px) {
+  /* Genel Konteyner Düzenlemeleri */
+  .category-content-container {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin: 1.5rem auto !important;
+  }
+  
+  /* Galeri ve bilgi kutularının eşit boyutlu olması */
+  .category-info-section, 
+  .category-gallery-section {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin-bottom: 20px !important;
+  }
+  
+  /* Hero Bölümü */
+  .hero-section-small {
+    padding: 1.5rem 0 !important;
+  }
+  
+  .page-title-small {
+    font-size: 1.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Kategori Butonları */
+  .category-buttons-container-small {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 0 10px !important;
+  }
+  
+  .category-button-small {
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .category-icon-small {
+    font-size: 1rem !important;
+    margin-right: 5px !important;
+  }
+  
+  .category-name-small {
+    font-size: 0.8rem !important;
+  }
+  
+  /* Galeri Görünümü */
+  .gallery-image-preview {
+    height: 280px !important;
+  }
+  
+  /* Küçük resim galerisi sürükleme çubuğunu kaldırma */
+  .gallery-thumbnails {
+    width: 100% !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+    padding: 10px 0 !important;
+  }
+  
+  .gallery-thumbnails::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari and Opera */
+  }
+  
+  .gallery-thumbnail {
+    flex: 0 0 70px !important;
+    height: 50px !important;
+    margin-right: 8px !important;
+  }
+
+  /* Gezinme Butonları */
+  .gallery-navigation {
+    padding: 0 10px !important;
+  }
+  
+  .gallery-nav-button {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Ekstra Düzeltmeler - Çok Küçük Telefonlar */
+@media screen and (max-width: 480px) {
+  .category-content-container {
+    padding: 0 10px !important;
+    margin: 1rem auto !important;
+  }
+  
+  .page-title-small {
+    font-size: 1.4rem !important;
+  }
+  
+  .category-info-section {
+    padding: 15px !important;
+  }
+  
+  .category-title {
+    font-size: 1.3rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .category-description {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  .features-title {
+    font-size: 1.1rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .features-list li {
+    font-size: 0.85rem !important;
+    padding: 5px 0 !important;
+  }
+  
+  .gallery-image-preview {
+    height: 200px !important;
+  }
+  
+  .gallery-thumbnail {
+    flex: 0 0 60px !important;
+    height: 40px !important;
+  }
+  
+  /* Galeri ve info kutularının eşit boyutlu olması */
+  .category-gallery-section, 
+  .category-info-section {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+  }
+}

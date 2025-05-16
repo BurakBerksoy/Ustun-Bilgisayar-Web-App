@@ -185,6 +185,8 @@
   padding: 12px 15px;
   border-radius: var(--border-radius);
   font-weight: 500;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .about-hero-image {
@@ -1037,55 +1039,97 @@
 
   .about-hero {
     padding: var(--spacing-xl) 0;
+    margin: var(--spacing) 0;
+    border-radius: var(--border-radius);
+  }
+
+  .about-hero-content {
+    padding: var(--spacing);
   }
 
   .about-hero-content h1 {
-    font-size: var(--font-3xl);
+    font-size: var(--font-2xl);
+    text-align: center;
   }
 
   .about-subtitle {
     font-size: var(--font-lg);
+    text-align: center;
   }
 
   .about-description p {
     font-size: var(--font-base);
+    padding: var(--spacing);
+    margin-bottom: var(--spacing-sm);
+    width: 100%;
+  }
+
+  .about-hero-image {
+    margin: 0 auto;
   }
 
   .section-title {
-    font-size: var(--font-2xl);
+    font-size: var(--font-xl);
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .history-content {
+    padding: 0 var(--spacing);
+  }
+
+  .history-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--spacing-md) auto;
   }
 
   .history-text p, .milestone-content p, .member-info p, .value-card p {
     font-size: var(--font-base);
+    text-align: center;
+  }
+
+  .milestone-item {
+    margin-bottom: var(--spacing);
+    padding: var(--spacing);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .milestone-year {
-    font-size: var(--font-xl);
+    font-size: var(--font-lg);
+    margin-bottom: var(--spacing-sm);
   }
 
   .milestone-content h3 {
     font-size: var(--font-lg);
+    text-align: center;
   }
 
-  .member-icon {
-    width: 100px;
-    height: 100px;
-  }
-
-  .member-info h3 {
-    font-size: var(--font-lg);
-  }
-
-  .member-role {
-    font-size: var(--font-base);
+  .milestone-content {
+    width: 100%;
   }
 
   .values-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
+    gap: var(--spacing);
+    padding: 0 var(--spacing);
+  }
+
+  .value-card {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing);
+  }
+
+  .about-cta-content {
+    padding: var(--spacing-md);
+    text-align: center;
   }
 
   .about-cta-content h2 {
-    font-size: var(--font-2xl);
+    font-size: var(--font-xl);
   }
 
   .about-cta-content p {
@@ -1095,6 +1139,9 @@
   .about-cta-content .btn {
     padding: var(--spacing) var(--spacing-lg);
     font-size: var(--font-base);
+    display: block;
+    width: 80%;
+    margin: 0 auto;
   }
 }
 
@@ -1109,39 +1156,154 @@
   }
 
   .container {
-    padding: 0 var(--spacing);
+    padding: 0 var(--spacing-sm);
+    width: 100%;
+  }
+  
+  .about-page {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .about-hero {
+    margin: var(--spacing-sm) 0;
+    min-height: auto;
+    padding: var(--spacing) 0;
   }
 
   .about-hero-content h1 {
-    font-size: var(--font-2xl);
+    font-size: var(--font-xl);
+    line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
   }
 
   .about-subtitle {
     font-size: var(--font-md);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .about-description p {
+    font-size: var(--font-sm);
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
   }
 
   .about-hero-icon {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+  
+  .about-hero-icon svg {
+    width: 60px;
+    height: 60px;
   }
 
   .section-title {
-    font-size: var(--font-xl);
+    font-size: var(--font-lg);
+    left: 0;
+    transform: none;
+    width: 100%;
+    text-align: center;
+    margin-bottom: var(--spacing);
+  }
+  
+  .section-title::after {
+    bottom: -5px;
+    width: 40px;
+    height: 2px;
+  }
+  
+  .history-section, .milestones-section, .values-section {
+    padding: var(--spacing-lg) 0;
+    margin: var(--spacing-sm) 0;
   }
 
+  .history-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .history-logo svg {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .history-text p {
+    font-size: var(--font-sm);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .milestone-item {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .milestone-year {
+    font-size: var(--font-md);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .milestone-content h3 {
+    font-size: var(--font-base);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .milestone-content p {
+    font-size: var(--font-sm);
+    line-height: 1.5;
+  }
+
+  .value-card {
+    padding: var(--spacing);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .value-icon {
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .value-card h3 {
+    font-size: var(--font-base);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .value-card p {
+    font-size: var(--font-sm);
+    line-height: 1.5;
+  }
+
+  .about-cta-section {
+    margin: var(--spacing-sm) 0 0;
+    padding: var(--spacing) 0;
+  }
+  
   .about-cta-content {
-    padding: var(--spacing-lg);
+    padding: var(--spacing);
   }
 
   .about-cta-content h2 {
-    font-size: var(--font-xl);
-  }
-
-  .milestone-year {
     font-size: var(--font-lg);
+    margin-bottom: var(--spacing-sm);
   }
-
-  .team-grid, .values-grid {
-    grid-template-columns: 1fr;
+  
+  .about-cta-content p {
+    font-size: var(--font-sm);
+    margin-bottom: var(--spacing);
+    line-height: 1.5;
+  }
+  
+  .about-cta-content .btn {
+    padding: var(--spacing-sm) var(--spacing);
+    font-size: var(--font-sm);
+    width: 90%;
+    margin: 0 auto;
   }
 } 

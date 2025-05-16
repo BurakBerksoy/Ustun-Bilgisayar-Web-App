@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Helmet } from 'react-helmet-async';
-import { FaImages, FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import '../styles/ProductsPage.css';
+import '../styles/products-mobile-responsive.css';
 
 // Kategori ve ürün verilerini burada tanımlıyoruz
 const productCategories = [
@@ -116,20 +117,23 @@ const categoryGalleryImages = {
   ]
 };
 
+
+
 const ProductsPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('camera');
   const [categoryInfo, setCategoryInfo] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
+
   const [showContactForm, setShowContactForm] = useState(false);
 
   // Sayfa yüklendiğinde ilk kategoriyi seç ve animasyon efektlerini başlat
   useEffect(() => {
-    if (productCategories.length > 0 && !selectedCategory) {
-      const firstCategory = productCategories[0].id;
-      setSelectedCategory(firstCategory);
-      setCategoryInfo(productCategories.find(cat => cat.id === firstCategory));
-    }
-  }, []);
+    const currentCategory = productCategories.find(cat => cat.id === selectedCategory);
+    setCategoryInfo(currentCategory);
+    setCurrentImage(0);
+  }, [selectedCategory]);
+
+
 
   const handleCategoryClick = (categoryId) => {
     setSelectedCategory(categoryId);
@@ -149,17 +153,15 @@ const ProductsPage = () => {
     setCurrentImage((prev) => (prev < images.length - 1 ? prev + 1 : 0));
   };
 
-  // Popup modalı kaldırıldı
+
 
   return (
     <div className="products-page">
       <Helmet>
         <title>Ürünlerimiz | Üstün Bilgisayar</title>
         <meta name="description" content="Üstün Bilgisayar'ın geniş ürün yelpazesi: mouse, klavye, monitör ve daha fazlası. En kaliteli bilgisayar parçaları ve aksesuarları." />
-        <meta name="keywords" content="bilgisayar ürünleri, mouse, klavye, monitör, laptop, masaüstü bilgisayar, bilgisayar parçaları, aksesuarlar" />
+        <meta name="keywords" content="bilgisayar ürünleri, mouse, klavye, monitör, laptop, masaüstü bilgisayar, bilgisayar parçaları, aksesuarlar, ümraniye bilgisayar servisi, bilgisayar tamiri, mouse tamiri" />
       </Helmet>
-
-      {/* Popup galerisi kaldırıldı */}
 
       <div className="hero-section-small">
         <div className="hero-overlay"></div>
@@ -180,6 +182,8 @@ const ProductsPage = () => {
           </div>
         </div>
       </div>
+      
+
 
       {selectedCategory && categoryInfo && (
         <div className="category-content-container">

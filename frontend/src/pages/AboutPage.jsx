@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import '../styles/AboutPage.css';
+import '../styles/mobile-responsive.css'; // Mobil uyumluluk için
 import { FaUsers, FaLaptop, FaHistory, FaBuilding, FaNetworkWired, FaGlobe, 
          FaCheckCircle, FaHandshake, FaLightbulb, FaHeadset, FaServer, 
          FaWrench, FaDatabase, FaDesktop, FaShieldAlt, FaVideo, 

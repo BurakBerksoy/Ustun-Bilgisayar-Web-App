@@ -1,0 +1,165 @@
+/* Mobil Uyumluluk - Telefon Ekranları için */
+@media screen and (max-width: 767px) {
+  /* Genel Ayarlar */
+  .container {
+    width: 100% !important;
+    padding: 0 10px !important;
+  }
+  
+  /* Hero Bölümü */
+  .about-hero {
+    padding: 20px 0 !important;
+    margin: 10px 0 !important;
+    min-height: auto !important;
+  }
+  
+  .about-hero-content {
+    text-align: center !important;
+    padding: 10px !important;
+  }
+  
+  .about-hero-content h1 {
+    font-size: 1.6rem !important;
+    margin-bottom: 15px !important;
+    text-align: center !important;
+  }
+  
+  .about-description p {
+    font-size: 0.9rem !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .about-hero-image {
+    margin: 0 auto 15px auto !important;
+  }
+  
+  .about-hero-icon {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  
+  /* Bölümler */
+  .history-section, 
+  .milestones-section, 
+  .values-section {
+    padding: 20px 0 !important;
+    margin: 10px 0 !important;
+  }
+  
+  .section-title {
+    font-size: 1.3rem !important;
+    margin-bottom: 15px !important;
+    text-align: center !important;
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+  
+  /* Tarihçe */
+  .history-content {
+    flex-direction: column !important;
+    padding: 0 10px !important;
+  }
+  
+  .history-logo {
+    width: 100px !important;
+    height: 100px !important;
+    margin: 0 auto 15px auto !important;
+  }
+  
+  .history-text p {
+    font-size: 0.9rem !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+  }
+  
+  /* Dönüm Noktaları */
+  .milestone-item {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .milestone-year {
+    margin-bottom: 5px !important;
+    font-size: 1.1rem !important;
+    min-width: auto !important;
+  }
+  
+  .milestone-content {
+    width: 100% !important;
+  }
+  
+  .milestone-content h3 {
+    font-size: 1rem !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .milestone-content p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Değerler */
+  .values-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 0 10px !important;
+  }
+  
+  .value-card {
+    padding: 15px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .value-icon {
+    width: 60px !important;
+    height: 60px !important;
+    margin-bottom: 10px !important;
+    font-size: 1.5rem !important;
+  }
+  
+  .value-card h3 {
+    font-size: 1rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .value-card p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* CTA Bölümü */
+  .about-cta-section {
+    padding: 20px 0 !important;
+    margin: 10px 0 0 !important;
+  }
+  
+  .about-cta-content {
+    padding: 10px !important;
+  }
+  
+  .about-cta-content h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .about-cta-content p {
+    font-size: 0.9rem !important;
+    margin-bottom: 15px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .about-cta-content .btn {
+    padding: 8px 15px !important;
+    font-size: 0.9rem !important;
+    width: 100% !important;
+    max-width: 250px !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+}
