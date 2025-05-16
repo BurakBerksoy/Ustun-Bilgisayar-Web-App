@@ -71,11 +71,12 @@
 .about-page {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--gray-dark);
-  background: linear-gradient(135deg, #e0edff 0%, #c7dcff 50%, #b4d0ff 100%);
+  background: #ffffff; /* Arka plan beyaz */
   line-height: 1.5;
   overflow-x: hidden;
   width: 100%;
   position: relative;
+  padding: var(--spacing-xl) 0;
 }
 
 .about-page::before {
@@ -120,12 +121,11 @@
   padding: var(--spacing-2xl) 0;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(59, 130, 246, 0.25) 100%);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8); /* Daha koyu mavi - yazıların kontrastını artırmak için */
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
   margin: var(--spacing-lg) 0;
   border-radius: var(--border-radius-lg);
-  border: 1px solid rgba(96, 165, 250, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .about-hero::before {
@@ -135,11 +135,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(5, 150, 105, 0.04) 0%, transparent 40%);
-  animation: gradientShift 15s ease-in-out infinite alternate;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   z-index: 1;
+  pointer-events: none;
+  opacity: 0.2; /* Deseni daha hafif hale getirdik */
 }
 
 .about-hero .container {
@@ -162,12 +161,10 @@
   font-size: var(--font-4xl);
   font-weight: 800;
   margin-bottom: var(--spacing-md);
-  background: var(--gradient-blue);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: white;
   position: relative;
   line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Okunurluğu artırmak için metin gölgesi */
 }
 
 .about-subtitle {
@@ -181,8 +178,13 @@
 .about-description p {
   font-size: var(--font-md);
   line-height: 1.7;
-  color: var(--gray-color);
+  color: white;
   margin-bottom: var(--spacing);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 12px 15px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
 }
 
 .about-hero-image {
@@ -229,38 +231,45 @@
 /* Bölüm Başlığı Stili */
 .section-title {
   text-align: center;
-  font-size: var(--font-3xl);
+  font-size: var(--font-2xl);
   font-weight: 800;
-  margin-bottom: var(--spacing-2xl);
-  color: var(--dark-color);
+  margin-bottom: var(--spacing-xl);
+  color: var(--primary-color);
   position: relative;
   display: inline-block;
-  left: 40%;
+  left: 50%;
   transform: translateX(-50%);
+  background: linear-gradient(90deg, #4f46e5, #3b82f6, #0ea5e9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
 }
 
 .section-title::after {
   content: '';
   position: absolute;
-  bottom: -12px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
-  height: 4px;
-  background: var(--gradient-blue);
+  height: 3px;
+  background: #2563eb;
   border-radius: 2px;
 }
 
 /* Tarihçe Bölümü */
 .history-section {
   padding: var(--spacing-3xl) 0;
-  background: linear-gradient(135deg, #dde9ff 0%, #bbd2ff 100%);
   position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: #ffffff; /* Beyaz arka plan */
   border-radius: var(--border-radius-lg);
   margin: var(--spacing-xl) 0;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(96, 165, 250, 0.4);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* Hafif desenli arka plan */
 }
 
 .history-section::before {
@@ -287,22 +296,27 @@
 }
 
 .history-logo {
-  flex: 0 0 200px;
-  height: 200px;
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: var(--light-color);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-  color: var(--primary-color);
+  justify-content: center;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6, #0ea5e9); /* Renkli gradyan */
+  border-radius: 50%;
+  margin-right: var(--spacing-xl);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+  color: white;
   transition: var(--transition-normal);
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 .history-logo:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  color: var(--primary-dark);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .history-text {
@@ -313,7 +327,7 @@
 .history-text p {
   font-size: var(--font-md);
   line-height: 1.8;
-  color: var(--gray-color);
+  color: var(--gray-color); /* Gri yazı */
   margin-bottom: var(--spacing-lg);
 }
 
@@ -324,12 +338,12 @@
 /* Dönüm Noktaları Bölümü */
 .milestones-section {
   padding: var(--spacing-3xl) 0;
-  position: relative;
-  background: linear-gradient(135deg, #cde2ff 0%, #9ec5ff 100%);
-  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+  background: #ffffff; /* Beyaz arka plan */
+  backdrop-filter: blur(15px);
+  box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-lg);
-  margin: var(--spacing-xl) 0;
-  border: 1px solid rgba(96, 165, 250, 0.4);
+  margin: var(--spacing-2xl) 0;
+  overflow: hidden;
 }
 
 .milestones-section::before {
@@ -353,14 +367,17 @@
 
 .milestone-item {
   position: relative;
-  background: white;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4); /* Renkli gradyan */
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
   transition: var(--transition-normal);
-  padding: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
-  border: 1px solid var(--gray-light);
+  padding: var(--spacing-lg);
+  display: flex;
+  align-items: flex-start;
   overflow: hidden;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .milestone-item::before {
@@ -368,11 +385,12 @@
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
   height: 100%;
-  width: 4px;
-  background: var(--gradient-blue);
-  opacity: 0;
-  transition: var(--transition-normal);
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm20 0a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM10 37a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm10-17h100v20H20V20zM30 37a7 7 0 1 0 0-14 7 7 0 0 0 0 14z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* Modern desen */
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .milestone-item:hover {
@@ -387,25 +405,24 @@
 .milestone-year {
   font-size: var(--font-2xl);
   font-weight: 800;
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-sm);
-  background: rgba(37, 99, 235, 0.08);
-  display: inline-block;
-  padding: var(--spacing-xs) var(--spacing);
-  border-radius: var(--border-radius);
+  color: white; /* Mavi arka plana karşı beyaz yazı */
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .milestone-content h3 {
-  font-size: var(--font-xl);
-  margin-bottom: var(--spacing-sm);
-  color: var(--dark-color);
+  font-size: var(--font-lg);
   font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: white;
 }
 
 .milestone-content p {
   font-size: var(--font-md);
-  color: var(--gray-color);
-  line-height: 1.7;
+  line-height: 1.6;
+  color: white; /* Mavi arka plana karşı beyaz yazı */
 }
 
 /* Ekip Bölümü */
@@ -442,12 +459,12 @@
 }
 
 .team-member {
-  background: white;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); /* Mavi gradyan arka plan */
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: var(--transition-normal);
-  border: 1px solid var(--gray-light);
+  border: 1px solid var(--primary-light);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -577,19 +594,21 @@
 }
 
 .value-card {
-  background: white;
+  background: linear-gradient(135deg, #4338ca, #3b82f6); /* Renkli gradyan */
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-xl);
   text-align: center;
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
   transition: var(--transition-normal);
-  border: 1px solid var(--gray-light);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   height: 100%;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: white;
+  transform: translateZ(0);
 }
 
 .value-card::before {
@@ -636,15 +655,15 @@
 
 .value-card h3 {
   font-size: var(--font-lg);
-  color: var(--dark-color);
-  margin-bottom: var(--spacing);
+  color: white;
+  margin-bottom: var(--spacing-md);
   font-weight: 700;
 }
 
 .value-card p {
   font-size: var(--font-md);
   line-height: 1.7;
-  color: var(--gray-color);
+  color: white;
 }
 
 /* Kurumsal Hizmetlerimiz Bölümü */
@@ -685,18 +704,19 @@
 }
 
 .service-card {
-  background: white;
-  border-radius: var(--border-radius-md);
+  background: linear-gradient(135deg, #4f46e5, #3b82f6); /* Renkli gradyan */
+  border-radius: var(--border-radius-lg);
   padding: var(--spacing-lg);
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
   transition: var(--transition-normal);
-  border: 1px solid var(--gray-light);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   height: 100%;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: white;
 }
 
 .service-card::before {
@@ -846,17 +866,12 @@
 
 /* CTA Bölümü */
 .about-cta-section {
-  padding: var(--spacing-3xl) 0;
-  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-  position: relative;
+  padding: var(--spacing-2xl) 0;
+  background: var(--gradient-blue); /* Zaten mavi, bunu değiştirmiyoruz */
+  margin: var(--spacing-2xl) 0;
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
-  color: white;
-  margin-top: var(--spacing-3xl);
-  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
-  box-shadow: 0 -10px 30px rgba(37, 99, 235, 0.35);
-  border-top: 3px solid rgba(96, 165, 250, 0.5);
-  border-left: 3px solid rgba(96, 165, 250, 0.5);
-  border-right: 3px solid rgba(96, 165, 250, 0.5);
+  position: relative;
 }
 
 .about-cta-section::before {
