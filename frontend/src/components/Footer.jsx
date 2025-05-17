@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-logo">
-            <h3>İstanbul Bilgisayar Tamiri</h3>
+            <h3>Üstün Bilgisayar Tamiri</h3>
             <p>Profesyonel bilgisayar tamir hizmetleri ile her zaman yanınızdayız. Teknolojik sorunlarınıza hızlı çözümler sunuyoruz.</p>
             <div className="footer-contact">
               <div className="contact-item">
