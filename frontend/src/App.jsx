@@ -24,9 +24,9 @@ function App() {
     <HelmetProvider>
       <div className="app">
         <Helmet>
-          <title>İstanbul Bilgisayar Tamiri</title>
-          <meta name="description" content="İstanbul'da profesyonel bilgisayar tamiri ve teknik servis hizmetleri" />
-          <meta name="keywords" content="bilgisayar tamiri, laptop tamiri, teknoloji servisi, teknik destek" />
+          <title>Üstün Bilgisayar | Bilgisayar Tamiri & Teknik Servis</title>
+          <meta name="description" content="Üstün Bilgisayar olarak İstanbul'da profesyonel bilgisayar tamiri ve teknik servis hizmetleri" />
+          <meta name="keywords" content="bilgisayar tamiri, laptop tamiri, teknoloji servisi, teknik destek, Üstün Bilgisayar" />
         </Helmet>
         
         <Header />

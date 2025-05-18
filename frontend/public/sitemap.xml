@@ -1,39 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+  <!-- Ana Sayfa -->
   <url>
-    <loc>https://ustunbilgisayar.com/</loc>
-    <lastmod>2025-05-09</lastmod>
+    <loc>https://ustunbilisim.com/</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ustunbilisim.com/logo.png</image:loc>
+      <image:title>Üstün Bilgisayar Logo</image:title>
+      <image:caption>Bilgisayar Tamiri ve Teknik Servis Hizmetleri</image:caption>
+    </image:image>
   </url>
+
+  <!-- Hizmetler Sayfası -->
   <url>
-    <loc>https://ustunbilgisayar.com/hizmetler</loc>
-    <lastmod>2025-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://ustunbilisim.com/hizmetler</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ustunbilisim.com/images/hizmetler.jpg</image:loc>
+      <image:title>Üstün Bilgisayar Teknik Servis Hizmetleri</image:title>
+    </image:image>
   </url>
+
+  <!-- Ürünler Sayfası -->
   <url>
-    <loc>https://ustunbilgisayar.com/urunler</loc>
-    <lastmod>2025-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ustunbilgisayar.com/en-cok-sorulan-sorular</loc>
-    <lastmod>2025-05-09</lastmod>
+    <loc>https://ustunbilisim.com/urunler</loc>
+    <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Sıkça Sorulan Sorular -->
   <url>
-    <loc>https://ustunbilgisayar.com/hakkimizda</loc>
-    <lastmod>2025-05-09</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://ustunbilisim.com/en-cok-sorulan-sorular</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hakkımızda -->
+  <url>
+    <loc>https://ustunbilisim.com/hakkimizda</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ustunbilisim.com/about-image.jpg</image:loc>
+      <image:title>Üstün Bilgisayar Hakkında</image:title>
+    </image:image>
+  </url>
+
+  <!-- İletişim -->
+  <url>
+    <loc>https://ustunbilisim.com/iletisim</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hizmet Alt Sayfaları -->
+  <url>
+    <loc>https://ustunbilisim.com/hizmetler/bilgisayar-tamiri</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ustunbilisim.com/hizmetler/laptop-tamiri</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ustunbilisim.com/hizmetler/veri-kurtarma</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ustunbilgisayar.com/iletisim</loc>
-    <lastmod>2025-05-09</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://ustunbilisim.com/hizmetler/bilgisayar-temizligi</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ustunbilisim.com/hizmetler/anakart-tamiri</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ustunbilisim.com/hizmetler/mouse-tamiri</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Ümraniye Bölgesi -->
+  <url>
+    <loc>https://ustunbilisim.com/umraniye-bilgisayar-tamiri</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Yazıları -->
+  <url>
+    <loc>https://ustunbilisim.com/blog/bilgisayar-bakimi-nasil-yapilir</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ustunbilisim.com/blog/mouse-nasil-duzeltilir</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ustunbilisim.com/blog/bilgisayar-yavaslama-sebepleri</loc>
+    <lastmod>2025-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

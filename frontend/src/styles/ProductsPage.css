@@ -623,7 +623,33 @@
 
 /* Popup elementleri kaldırıldı */
 
+/* Yeni eklenen bileşenler için stiller */
+.category-buttons-scroll {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
 
+.gallery-thumbnails-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 5px 0;
+}
+
+.image-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+  color: #fff;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  opacity: 0.9;
+}
 
 /* Responsive design - Modern */
 @media (max-width: 768px) {
@@ -849,5 +875,10 @@
   
   .gallery-description {
     font-size: 1rem;
+  }
+
+  .image-title-overlay {
+    padding: 10px;
+    font-size: 0.9rem;
   }
 }

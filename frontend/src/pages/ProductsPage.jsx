@@ -161,6 +161,7 @@ const ProductsPage = () => {
         <title>Ürünlerimiz | Üstün Bilgisayar</title>
         <meta name="description" content="Üstün Bilgisayar'ın geniş ürün yelpazesi: mouse, klavye, monitör ve daha fazlası. En kaliteli bilgisayar parçaları ve aksesuarları." />
         <meta name="keywords" content="bilgisayar ürünleri, mouse, klavye, monitör, laptop, masaüstü bilgisayar, bilgisayar parçaları, aksesuarlar, ümraniye bilgisayar servisi, bilgisayar tamiri, mouse tamiri" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
       </Helmet>
 
       <div className="hero-section-small">
@@ -168,23 +169,23 @@ const ProductsPage = () => {
         <div className="header-content-small">
           <h1 className="page-title-small">ÜRÜNLERİMİZ</h1>
           
-          <div className="category-buttons-container-small">
-            {productCategories.map((category) => (
-              <button 
-                key={category.id}
-                className={`category-button-small ${selectedCategory === category.id ? 'active' : ''}`}
-                onClick={() => handleCategoryClick(category.id)}
-              >
-                <span className="category-icon-small">{category.icon}</span>
-                <span className="category-name-small">{category.name}</span>
-              </button>
-            ))}
+          <div className="category-buttons-scroll">
+            <div className="category-buttons-container-small">
+              {productCategories.map((category) => (
+                <button 
+                  key={category.id}
+                  className={`category-button-small ${selectedCategory === category.id ? 'active' : ''}`}
+                  onClick={() => handleCategoryClick(category.id)}
+                >
+                  <span className="category-icon-small">{category.icon}</span>
+                  <span className="category-name-small">{category.name}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
       
-
-
       {selectedCategory && categoryInfo && (
         <div className="category-content-container">
           <div className="category-info-section">
@@ -210,19 +211,22 @@ const ProductsPage = () => {
                     src={categoryGalleryImages[selectedCategory][currentImage].image} 
                     alt={categoryGalleryImages[selectedCategory][currentImage].title} 
                     className="gallery-preview-image" 
+                    loading="lazy"
                   />
                 </div>
 
-                <div className="gallery-thumbnails">
-                  {categoryGalleryImages[selectedCategory].map((image, index) => (
-                    <div 
-                      key={image.id}
-                      className={`gallery-thumbnail ${currentImage === index ? 'active' : ''}`}
-                      onClick={() => setCurrentImage(index)}
-                    >
-                      <img src={image.image} alt={image.title} />
-                    </div>
-                  ))}
+                <div className="gallery-thumbnails-wrapper">
+                  <div className="gallery-thumbnails">
+                    {categoryGalleryImages[selectedCategory].map((image, index) => (
+                      <div 
+                        key={image.id}
+                        className={`gallery-thumbnail ${currentImage === index ? 'active' : ''}`}
+                        onClick={() => setCurrentImage(index)}
+                      >
+                        <img src={image.image} alt={image.title} loading="lazy" />
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="gallery-navigation">

@@ -32,7 +32,7 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <FaEnvelope />
-                <a href="mailto:üstünbilgisayar@bilgisayartamiri.com">üstünbilgisayar@bilgisayartamiri.com</a>
+                <a href="mailto:info@ustunbilisim.com">info@ustunbilisim.com</a>
               </div>
             </div>
           </div>

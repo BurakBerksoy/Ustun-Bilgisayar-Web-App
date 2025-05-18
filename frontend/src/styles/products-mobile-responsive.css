@@ -6,6 +6,7 @@
     grid-template-columns: 1fr !important;
     gap: 20px !important;
     margin: 1.5rem auto !important;
+    padding: 0 15px !important;
   }
   
   /* Galeri ve bilgi kutularının eşit boyutlu olması */
@@ -15,6 +16,7 @@
     height: auto !important;
     min-height: 0 !important;
     margin-bottom: 20px !important;
+    overflow: visible !important;
   }
   
   /* Hero Bölümü */
@@ -33,11 +35,15 @@
     justify-content: center !important;
     gap: 8px !important;
     padding: 0 10px !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
   
   .category-button-small {
     padding: 6px 12px !important;
     font-size: 0.8rem !important;
+    flex-shrink: 0 !important;
   }
   
   .category-icon-small {
@@ -52,15 +58,21 @@
   /* Galeri Görünümü */
   .gallery-image-preview {
     height: 280px !important;
+    max-height: 50vh !important;
   }
   
   /* Küçük resim galerisi sürükleme çubuğunu kaldırma */
   .gallery-thumbnails {
     width: 100% !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
     overflow-x: auto !important;
     scrollbar-width: none !important; /* Firefox */
     -ms-overflow-style: none !important; /* IE and Edge */
     padding: 10px 0 !important;
+    margin-top: 10px !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 8px !important;
   }
   
   .gallery-thumbnails::-webkit-scrollbar {
@@ -70,7 +82,7 @@
   .gallery-thumbnail {
     flex: 0 0 70px !important;
     height: 50px !important;
-    margin-right: 8px !important;
+    margin-right: 0 !important;
   }
 
   /* Gezinme Butonları */
@@ -82,11 +94,17 @@
     width: 32px !important;
     height: 32px !important;
     font-size: 14px !important;
+    opacity: 0.8 !important;
+    background-color: rgba(255, 255, 255, 0.6) !important;
   }
 }
 
 /* Ekstra Düzeltmeler - Çok Küçük Telefonlar */
 @media screen and (max-width: 480px) {
+  .products-page {
+    overflow-x: hidden !important;
+  }
+
   .category-content-container {
     padding: 0 10px !important;
     margin: 1rem auto !important;
@@ -121,19 +139,67 @@
   }
   
   .gallery-image-preview {
-    height: 200px !important;
+    height: 180px !important;
   }
   
   .gallery-thumbnail {
-    flex: 0 0 60px !important;
-    height: 40px !important;
+    flex: 0 0 50px !important;
+    height: 35px !important;
   }
-  
-  /* Galeri ve info kutularının eşit boyutlu olması */
+
+  /* FIX: 1fr 1fr grid bu ekranlarda sorun yaratıyor, tek sütun kullanıyoruz */
   .category-gallery-section, 
   .category-info-section {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    display: block !important;
     width: 100% !important;
+  }
+
+  .category-buttons-container-small {
+    margin-top: 5px !important;
+  }
+
+  .category-button-small {
+    padding: 5px 10px !important;
+    min-width: auto !important;
+  }
+}
+
+/* Çok Çok Küçük Telefonlar - 375px ve altı */
+@media screen and (max-width: 375px) {
+  .header-content-small {
+    padding: 0 10px !important;
+  }
+
+  .page-title-small {
+    font-size: 1.3rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .category-icon-small {
+    font-size: 0.9rem !important;
+    margin-right: 4px !important;
+  }
+
+  .category-name-small {
+    font-size: 0.7rem !important;
+  }
+
+  .category-button-small {
+    padding: 4px 8px !important;
+  }
+
+  .gallery-image-preview {
+    height: 150px !important;
+  }
+
+  .gallery-thumbnail {
+    flex: 0 0 40px !important;
+    height: 30px !important;
+  }
+
+  .gallery-nav-button {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 12px !important;
   }
 }

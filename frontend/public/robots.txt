@@ -1,3 +1,14 @@
+# Üstün Bilgisayar Robot Kuralları
 User-agent: *
 Allow: /
-Sitemap: https://ustunbilgisayar.com/sitemap.xml
+
+# Önemli sayfaların taranmasına öncelik verin
+Allow: /$
+Allow: /hizmetler$
+Allow: /urunler$
+Allow: /hakkimizda$
+Allow: /en-cok-sorulan-sorular$
+Allow: /iletisim$
+
+# Site haritası
+Sitemap: https://ustunbilisim.com/sitemap.xml
